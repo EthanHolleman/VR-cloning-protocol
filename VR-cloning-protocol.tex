@@ -259,6 +259,68 @@ Use qPCR with primers for subset of variable regions with divergent characterist
 Short description of SMRF-seq protocol using barcoded PCR primers for amplification 
 and anticipated data analysis. 
 
+\section{Code availability}
+
+All code used in insert creation and analysis is available here. The source code for this document is available at here. 
+
+\section{Supplementary materials}
+
+\subsection{Variable region snakemake pipeline diagram}
+
+\begin{figure}[H]
+	\includegraphics[width=15cm]{images/misc/dag.png}
+	\centering
+	\caption{Place holder dag image.}
+\end{figure}
+
+\subsection{Initial R-looper expectation calculations}
+
+Originally, expectations for R-looper results were derived by measuring average per base pair probability and of R-loop formation average per base pair local average energy calculated by rlooper for a large number of random sequences of a given length. 
+
+\begin{figure}[H]
+	\includegraphics[width=15cm]{images/plots/rand_seq_LAE_dist.png}
+	\centering
+	\caption{Initial rlooper expectation plots based on completely random sequences.}
+\end{figure}
+
+The top figure shows the distribution of average R-loop energy for a given base pair, averaged over all R-loops that contain that base pair for random sequences of a given length.
+
+Bottom plot
+
+Thanks to conversations with Craig and Robert about this also decided using parameterized sequences would be more informative resulting in fig 1.
+
+
+
+
+\subsection{Homology arm calculations}
+
+Jupyter notebook that includes all code used to generate homology arms and insert
+restriction sites is available  \href{https://github.com/EthanHolleman/plasmid-VR-design/blob/main/notes/homology_arms.ipynb}{at this link}. The genbank formatted files of both homology arms can be found in the same repository in the \href{https://github.com/EthanHolleman/plasmid-VR-design/tree/main/resources/files/genbank}{resources directory}.
+
+\subsection{Variable regions in fasta format}
+
+\begin{verbatim}
+>VR_init-1-5_initiation_region_1_GCskew:0.1_GCcontent:0.4_ATskew:0_ATcontent:0.6_Clustered:False
+TTAACTATATATGTATCCTTCCACACCCTTATCTAAATTCTCTTAGATTTTCAATCCTATAGTGTAGCTGTGGCAGATG
+CAACTTTACAGGCGCGAGTTGCTACTACACCCAGACTAGTAATAGTCCAGTTTAGACAAGGGAAGAGGTAAATCGTCTA
+CTAAAACTAGGACTCTGTATAAGTTACCAACGGTGTTACCGC
+>VR_init-1-5_initiation_region_1_GCskew:0.1_GCcontent:0.4_ATskew:0_ATcontent:0.6_Clustered:False
+TTAACTATATATGTATCCTTCCACACCCTTATCTAAATTCTCTTAGATTTTCAATCCTATAGTGTAGCTGTGGCAGATG
+CAACTTTACAGGCGCGAGTTGCTACTACACCCAGACTAGTAATAGTCCAGTTTAGACAAGGGAAGAGGTAAATCGTCTA
+CTAAAACTAGGACTCTGTATAAGTTACCAACGGTGTTACCGC
+>VR_init-1-5_initiation_region_1_GCskew:0.1_GCcontent:0.4_ATskew:0_ATcontent:0.6_Clustered:False
+TTAACTATATATGTATCCTTCCACACCCTTATCTAAATTCTCTTAGATTTTCAATCCTATAGTGTAGCTGTGGCAGATG
+CAACTTTACAGGCGCGAGTTGCTACTACACCCAGACTAGTAATAGTCCAGTTTAGACAAGGGAAGAGGTAAATCGTCTA
+CTAAAACTAGGACTCTGTATAAGTTACCAACGGTGTTACCGC
+\end{verbatim}
+
+\subsection{Complete inserts in fasta format}
+
+
+\subsection{RNA secondary structure expectation plots}
+
+
+
 
 \pagebreak
 
