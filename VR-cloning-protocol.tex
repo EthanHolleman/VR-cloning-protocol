@@ -47,7 +47,7 @@
 
 \section{Background}
 
-R-loops are prevalent, functional important, non-B DNA structures that form co-transcriptionally when the nascent RNA strand hybridizes back to the DNA template forming a DNA-RNA hybrid \cite{chedin_nascent_2016}. 
+R-loops are prevalent, functional important, non-B DNA structures that form co-transcriptionally when the nascent RNA strand hybridizes back to the DNA template forming a DNA-RNA hybrid \cite{chedin_nascent_2016}. R-loops are formed ubiquitously across the genomes of all organisms often occupying a large fractions of the genomes in a cell population. 
 
 \begin{figure}[H]
 	\includegraphics[width=12cm]{images/r-loops/rloop_stages.png}
@@ -56,12 +56,12 @@ R-loops are prevalent, functional important, non-B DNA structures that form co-t
 	\label{fig:1}
 \end{figure}
 
-
+R-loops have been shown to cover approximately 5\% of the human genome, and generally, their formation is favored by regions with high GC-skew and GC content as the potential DNA-RNA hybrids formed over these sequences tend to be more energetically favorable \cite{Stolz2019}. Beyond these broad associations there has been little investigation into the specific sequence characteristics that influence R-loop initiation and termination, representing a significant gap in knowledge that continues to become increasingly pressing as the recognized scope of these structure's impact of cellular functions continues to grow. Here, I describe a detailed strategy for the systematic investigation of the impact of DNA sequence on R-loop initiation and termination which seeks to implement the methods described by Vazquez, Chedin and Natasa in NSF proposal number 2054347. 
 
 
 \section{Insert design}
 
-The overall goal of this series of experiments is to transcribe carefully controlled DNA sequences, referred to as inserts, in order to systematically observe the effects of these sequences on R-loop formation \emph{in vitro}. Inserts are composed of two types of DNA components, the variable region and flanking infrastructure regions. The variable region contains the sequence we are interested in observing R-loop dynamics over. Infrastructure sequences are additional nucleotide blocks that allow for the insertion of variable regions into specific plasmid backbones in a modular fashion. 
+The overall goal of this series of experiments is to transcribe carefully controlled DNA sequences, referred to as inserts, in order to systematically observe the effects of these controlled sequences on R-loop initiation and termination \emph{in vitro}. Inserts are composed of two types of DNA components; the variable and flanking infrastructure regions. The variable region is the actual region of interest with respect to R-loop formation while infrastructure sequences are additional nucleotide blocks that allow for the insertion of variable regions into specific plasmid backbones (see section \ref{}) in a modular fashion. 
 
 \begin{figure}[H]
 	\includegraphics[width=16cm]{images/variable_region/construct_diagrams-Detailed-Insert.png}
@@ -70,13 +70,10 @@ The overall goal of this series of experiments is to transcribe carefully contro
 	\label{fig:1}
 \end{figure}
 
-From right to left (5' to 3') each insert will contain a 5' homology arm with complementary to the last 7 nucleotides of the T7 promoter, 17 nucleotides complementary to the pFC9 plasmid immediately downstream of the T7 promoter for a total of 24 bp. This will be followed by a KpnI recognition site, and an "anchor" region will will be composed of a constant sequence which can be utilized for targeting by PCR primers. The following region will contain the variable region which defines the identity of each complete insert. Finally a EcoRI recognition site and 24 taken from the region downstream of pFC9's EcoRI recognition site will be included. This design will allow for insertion of variable regions in either forward or reverse orientations using combinations of Gibson and restriction enzyme cloning, as well as allowing for later extraction via PCR or restriction enzymes. Specific methodolgies are discussed in greater detail in section \ref{}. Each insert will be completely synthesized as double strand DNA from an outside company and therefore require no additional assembly. 
 
-\subsection{Insert components}
+\subsection{5' homology arm and KpnI recognition site}
 
-\subsubsection{5' homology arm and KpnI recognition site}
-
-The first 30 bp of each insert will be composed of the 5' homology arm and a KpnI recognition site. These sequences are included to facilitate Gibson and restriction enzyme cloning into pFC9 and pFC9 respectively. These 30 bp are taken directly from nucleotides 27 - 56 of pFC9.
+The first 30 bp of each insert will be composed of the 5' homology arm and a KpnI recognition site. These sequences are included to facilitate Gibson and restriction enzyme cloning into pFC9 and pFC8 respectively. These 30 bp are taken directly from nucleotides 27 - 56 of pFC9.
 
 \begin{figure}[h]
 	\includegraphics[width=12cm]{images/variable_region/5_homology_arm.png}
@@ -85,48 +82,50 @@ The first 30 bp of each insert will be composed of the 5' homology arm and a Kpn
 	\label{fig:1}
 \end{figure}
 
-This strategy will mean recognition sites for Eco53KI, SacI and Acc65I will be included in the 5' homology arms but none of these enzymes will be utilized in any cloning protocols and so only the KpnI site is noted in diagrams.
+This strategy will mean recognition sites for Eco53KI, SacI and Acc65I will be included in the 5' homology arms. However, none of these enzymes will be utilized in any cloning protocols and so only the KpnI site is noted in diagrams.
 
 
 \subsubsection{Anchor}
 
-The anchor region serves as a constant sequence that will always be present in any final assembled construct adjacent to the 5' end of the variable region. Having this region within the insertion sequence means for a given plasmid backbone, at most 1 pair of primers will be required to amplify any sequence downstream of the 3' end of the anchor. This is useful when working with libraries containing all insertion sequences as each unique insertion will not require its own primer pair to amplify. This utility is more explicitly shown in sections \ref{sec:tac-init} and \ref{sec:tac-termination}. 
+The anchor region serves as a constant 15 nucleotide sequence that is always present in any final assembled construct adjacent to the 5' end of the variable region. This region provides significant utility when attempting to clone inserts already present in a plasmid into an alternative backbone as the number of primers required to amplify the insert region will not be dependent on the the number of variable regions but the number of unique backbones.This utility is more explicitly shown in sections \ref{sec:tac-init} and \ref{sec:tac-termination}. 
 
-Since this region is intended to be used as part of a PCR primer it is selected from candidate random sequences that satisfy the requirements below.
+Since this region is intended to be used as part of a PCR primer it was selected from candidate random sequences that satisfied the requirements below.
 
 \begin{itemize}
-	\item Does not contain any common sub-strings of minimun length equal to 75\% of the anchor's own length with any variable region or plasmid backbone.
+	\item Does not contain any common sub-strings of minimum length equal to 75\% of the anchor's own length with any variable region or plasmid backbone.
 	\item Does not contain the recognition sites for any restriction enzyme used in any relevant cloning procedure (see table \ref{tab:enzymes}).
 	\item Has a melting temperature estimated by using \href{https://biopython.org/docs/1.75/api/Bio.SeqUtils.MeltingTemp.html#Bio.SeqUtils.MeltingTemp.Tm_GC}{nearest neighbor thermodynamics} of at least 50\textdegree C.
 \end{itemize}
 
+The final anchor region sequence is available for download \href{}{at this link}.
+
 \subsubsection{Variable regions}
 
-Each insert will contain 1 variable region which will be designed to test the effects of different sequence properties on R-loop dynamics, namely GC / AT skew, GC content and G / C clustering. Each variable region will be 200 bp in length. Twenty nine different variable regions with the properties described in table \ref{table:1} will be generated using the \href{https://github.com/EthanHolleman/plasmid-VR-design}{variable region design workflow}. Each variable region, as part of the larger insertion sequence, will be cloned downstream of a promoter so it is transcribed in the forward direction. 
+Each insert will contain 1 variable region designed to test the effects of different sequence, namely GC / AT skew, GC content and G / C clustering, on both R-loop initiation and termination. Each variable region will be 200 bp in length and twenty nine different variable regions with the properties described in table \ref{table:1} will ultimately be synthesized. 
 
 \input{tables/syn_VRs}
 
-A subset of the variable regions will also be cloned further downstream of the same promoter species and oriented so the reverse complement of the sequence is transcribed in order to access these regions capacity for R-loop termination. The properties of the transcripts of these sequences are listed in table \ref{table:2}. 
+Each variable region is designed so that it may be used to test sequence effects on R-loop initiation when transcribed in the forward direction and placed adjacent to a promoter or R-loop termination when transcribed in reverse and placed more distantly to a promoter. Variable regions that will be tested as initiators and terminators are marked with a 1 in the reverse complement column of \ref{table:1} and the properties of their reverse complements are described in table \ref{table:2}. 
 
 \input{tables/RC_VRs}
 
-The cloning experiments required to produce these termination constructs will be undertaken after initiation experiments are completed. This will allow for the identification of a strong initiation sequence that can be used to reliability initiated R-loops in order to study their downstream termination. 
+The cloning experiments required to produce these termination constructs will be undertaken after initiation experiments are completed. This will allow for the identification of a strong initiation sequence that can be used to reliability form R-loops. 
 
 \input{tables/total_VR_counts}
 
-While the global sequence properties for each variable region are well defined, properties such as GC-skew, content or clustering do not determine what nucleotide should occur at position \emph{n} in a given sequence. In this way, the parameters that define and separate each variable region can be thought of as bounding the set of all possible nucleotide sequences of length 200. In order one specific sequence from this set we can sample a large number of sequences and access each one with metrics relevant to the realities of the cloning protocols and R-loop formation. 
+While the global sequence properties for each variable region are well defined, properties such as GC-skew, content or nucleotide clustering do not determine which particular nucleotide should occur at a specific position in a given sequence. In this way, the parameters that define and separate each variable region can be thought of as bounding the set of all possible nucleotide sequences of length 200. In order to select one specific sequence from this set we can sample a large number of sequences and access each one with metrics relevant to the realities of the various cloning protocols and R-loop formation. 
 
 \begin{figure}[H]
 	\includegraphics[width=18cm]{images/plots/VR-1.all_ranked.png}
 	\centering
-	\caption{}
+	\caption{Visualization of sequence selection for an example variable region. Here, 100 candidate variable region sequences where generated and then ranked based on four metrics; mean R-loop probability (MRLP), mean local average energy (MLAE), proportion of nucleotides predicted to participate in RNA hairpins (PH) and proportion of nucleotides predicted to be unpaired (PUP). Sequences were by each individual metric (A) and an overall rank was calculated by selecting the candidate with the lowest average rank (B). The candidate with the best (lowest) overall rank was then selected as the final sequence.}
 	\label{ranking}
 \end{figure}
 
 
 \paragraph{Restriction enzyme recognition sites}
 
-Over the course of all planned cloning experiments, all the restriction enzymes in table \ref{} will be utilized in some capacity. It is therefore critical that the inserts are not cut unexpectedly within the variable region by any of these enzymes. Accordingly, before passing on for further downstream analysis potential variable regions containing any of these recognition sites were thrown out. 
+Over the course of all planned cloning experiments, all the restriction enzymes in table \ref{} will be utilized in some capacity. It is critical that the inserts are not cut unexpectedly within the variable region by any of these enzymes. Accordingly, before passing on for further downstream analysis candidate variable regions containing any of the recognition sites listed in table \ref{tab:enzymes} were removed from consideration.
 
 \begin{table}[H]
 	\caption{}
@@ -144,7 +143,7 @@ Over the course of all planned cloning experiments, all the restriction enzymes 
 
 \paragraph{Predicted R-loop probability}
 
-Previous Chedin lab member Dr. Robert Stolz developed rlooper, a physics based equilibrium model for predicting the probability of R-loop formation over a given DNA sequence. Rlooper output includes a predicted probability of R-loop formation at each base in the input sequence, and the calculated average free energy from all R-loops overlapping that particular nucleotide. Since, for this analysis, we prefer to select variable regions that are more likely to form R-loops these metrics are also used to compare and rank candidate variable regions with highest ranking sequences having low mean local average energy and high average R-loop probability compared to all sequences generated with the same parameters. 
+Previous Chedin lab member Dr. Robert Stolz developed rlooper, a physics based equilibrium model for predicting the probability of R-loop formation over a given DNA sequence \cite{Stolz2019}. Rlooper output includes a predicted probability of R-loop formation at each base in the input sequence, and the calculated average free energy (local average energy) from all R-loops overlapping that particular nucleotide. Since, for this analysis, we prefer to select variable regions that are more likely to form R-loops these metrics are also used to compare and rank candidate variable regions with highest ranking sequences having low mean local average energy and high average R-loop probability compared to all sequences generated with the same parameters. 
 
 \begin{figure}[H]
 	\includegraphics[width=14cm]{images/plots/rlooper_expect_tile.png}
@@ -156,10 +155,9 @@ Previous Chedin lab member Dr. Robert Stolz developed rlooper, a physics based e
 Both local average energy and somewhat consequentially, mean R-loop probability are sensitive to both the GC skew and content of the input sequence (fig \ref{fig:rlooper-expect}). Comparing between sequences generated with the same parameters and therefore GC skew and content ensures that we are mainly evaluating how the arrangement of a particular set of nucleotides is predicted in generally effect the likelihood of R-loop formation.
 
 
-
 \paragraph{RNA secondary structure}
 
-Significant amounts of RNA secondary structure, especially large hairpins, can be expected to reduce the likelihood of R-loop formation by causing competition for binding to the nascent RNA strand between itself and the DNA template. 
+Significant amounts of RNA secondary structure, especially large hairpins, can be expected to reduce the likelihood of R-loop formation by causing competition for binding to the nascent RNA strand between itself and the DNA template. To avoid selecting sequences that are predicted to form an anomalous degree of RNA secondary structure the SPOT-RNA in conjunction with bpRNA structure annotation \cite{Singh2019, Danaee2018} were used to calculate the estimated proportion of ribonucleotides in a given transcribed variable region that would participate in hairpin structures (PH) and the estimated proportion of that would remain unpaired (PUP). Candidate variable regions with low PH and high PUP were preferred.
 
 
 \begin{figure}[H]
@@ -181,6 +179,8 @@ The final 20 nucleotides of each insert will be composed of a EcoRI recognition 
 	\caption{Sequence of the 3' homology arm and EcoRI site. The complete sequence is highlighted in purple.}
 	\label{fig:3_prime_arm}
 \end{figure}
+
+Both the 5' homology arm + KpnI site and EcoRI site + 3' homology arm were produced using the jupyter notebook available \href{https://github.com/EthanHolleman/plasmid-VR-design/blob/main/notes/homology_arms.ipynb}{at this link} and the final sequences are available in genbank format \href{https://github.com/EthanHolleman/plasmid-VR-design/tree/main/resources/files/genbank}{at this link}.
 
 
 
@@ -228,6 +228,13 @@ Complete insert sequences will be cloned into three different plasmid backbones:
 
 First, pFC9 will be linearized by digestion with KpnI and EcoRI  (fig \ref{clone:T7-insert}A). The large pFC9 fragment will then be purified and added to a mixture containing all insert sequences in equal concentration  (fig \ref{clone:T7-insert}B). Next, T5 exonuclease is added to digest the 5' ends of all DNA in the mixture. This will leave the 3' overhang of the digested KpnI site intact but degrade the 5' overhang of EcoRI  (fig \ref{clone:T7-insert}C). The 5' ends of the insert will also be degraded exposing exposing the complete KnpI and EcoRI sites present in each insert. Next, during Gibson assembly the 5' homology arm and KnpI site will anneal to the pFC9 large fragment, overhanging the digested KnpI site by 1 nucleotide; a C. Similarly, the 3' homology arm and intact EcoRI site of the inserts will anneal to the pFC9 large fragment, with only the last nucleotide (C) of the insert's intact EcoRI site annealing to the 3' G present at the digested EcoRI site of the pFC9 large fragment (fig \ref{clone:T7-insert}D). This will result in a library of circular constructs with all inserts located downstream of and oriented forward relative to, the pFC9 T7 promoter (fig \ref{clone:T7-insert}). 
 
+\begin{figure}[H]
+	\includegraphics[width=12cm]{images/plasmid_maps/T7_init_vr-1_simulated_assembly.png}
+	\centering
+	\caption{Plasmid map of produced by simulating the T7 initiation series cloning protocol for the insert containing variable region 1. Cloning simulations were ran and confirmed to be successful for all complete inserts sequences.}
+	\label{clone:T7-insert-simulated}
+\end{figure}
+
 
 \subsection{T7 termination series constructs}
 
@@ -243,6 +250,13 @@ After the successful sequencing of the T7 initiation series, pFC8 will be utiliz
 
  First, the strongest and most consistent R-loop initiator identified from the T7 initiation series will serve as the substrate for an additional synthetic double stranded DNA fragment containing the strong initiator sequence flanked by  HindIII and EcoRI recognition sequences (\ref{clone:T7-term}A). This strong initiator fragment will be added to pFC8  (\ref{clone:T7-term}B) and then the mixture digested with HindIII and EcoRI. The strong initiator will then anneal to the large pFC8 fragment via homology between the digested HindIII and EcoRI recognition sites (\ref{clone:T7-term}C). Next all termination inserts will be added to the pFC8-strong-initiator construct in equal concentrations (\ref{clone:T7-term}D) and the mixture digested with KpnI and EcoRI (\ref{clone:T7-term}E). Inserts will then be incorporated into pFC8-strong-initiator constructs via homology between the digested KpnI and EcoRI sites (\ref{clone:T7-term}F). Since the order of these recognition sites on the pFC8-strong-initiator construct is opposite to that of the insert with respect to the T7 promoter the inserts will be present in the final construct in the reverse orientation and place the variable region downstream of the strong initiator (\ref{clone:T7-term}G). 
  
+ \begin{figure}[H]
+ 	\includegraphics[width=12cm]{images/plasmid_maps/T7_term_VR-1 Map_simulated_assembly.png}
+ 	\centering
+ 	\caption{Plasmid map of produced by simulating the T7 termination series cloning protocol for the insert containing variable region 1. Cloning simulations were ran and confirmed to be successful for all complete inserts sequences. Note that since the strong initiation sequence that was used is to be determined a \href{https://github.com/EthanHolleman/plasmid-VR-design/blob/main/notes/placeholder_strong_initiator.ipynb}{simulated but functionally equivalent sequence} was used in its place and is not shown in the map image.}
+ 	\label{clone:T7-term-insert-simulated}
+ \end{figure}
+ 
 
 \subsection{Tac initiation series constructs}
 \label{sec:tac-init}
@@ -257,6 +271,8 @@ After the successful sequencing of the T7 initiation series, pFC8 will be utiliz
 First primers two pairs of primers are used to add amplify the anchor region, variable region, EcoRI recognition site and extension region from the T7 initiation construct library (\ref{sec:tac-init}). These primers will also contain 15 bp overhangs with homology to the 5' end of the tac promoter and 3' T1T2 terminator sequences. Next, the PCR products are added to pFC53T1T2 
 
 \subsubsection{Tac initiation series primer design}
+
+
 
 \subsection{Tac termination series constructs}
 \label{sec:tac-termination}
@@ -322,6 +338,9 @@ restriction sites is available  \href{https://github.com/EthanHolleman/plasmid-V
 
 \subsection{Variable regions in fasta format}
 \label{sec:fasta-inserts}
+
+Headers for each complete insert begin with the SEGUID string (A SEquence Globally Unique IDentifier) \cite{Babnigg2006} for the sequence followed by a space, the word insert, an underscore and finally the insert name.
+
 
 \begin{verbatim}
 >uI2oMODk-22mA4uMFkAWb8MNQEQ insert_init-1
