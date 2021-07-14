@@ -1,0 +1,130 @@
+LOCUS       Exported                3321 bp DNA     circular SYN 14-JUL-2021
+DEFINITION  cSEGUID_-6Jf32pHLkaDD_vCFhtomQLghHY.
+ACCESSION   odQy42oAHdwST_mTmAM7JY2ENqo
+VERSION     .
+KEYWORDS    .
+SOURCE      synthetic DNA construct
+  ORGANISM  synthetic DNA construct
+REFERENCE   1  (bases 1 to 3321)
+  AUTHORS   .
+  TITLE     Direct Submission
+  JOURNAL   Exported Jul 14, 2021 from SnapGene Viewer 5.3.1
+            https://www.snapgene.com
+FEATURES             Location/Qualifiers
+     source          1..3321
+                     /organism="synthetic DNA construct"
+                     /mol_type="other DNA"
+     primer_bind     complement(1011..1025)
+                     /label=Primer 2
+                     /note="Binds to hind3 cut site and t1t2 terminators"
+     promoter        3061..3082
+                     /label=T7 promoter
+                     /label=T7\promoter
+                     /note="/vntifkey=30"
+     CDS             3076..3105
+                     /codon_start=1
+                     /label=5_prime_HR
+                     /note="Homology arm of variable region insert taken from
+                     (base 1) positions 27-57 of pFC9"
+                     /note="/author=Ethan Holleman"
+                     /note="/date=07/08/2021"
+                     /note="/name=5' homology arm"
+                     /note="/pFC9_end=56"
+                     /note="/pFC9_seguid=NenxzxpELoRBEdYEmmDjvk0mvTk"
+                     /note="/pFC9_start=26"
+                     /translation="*GELELHIGT"
+     misc_feature    3078
+                     /label=T7 +1 Site
+                     /label=T7\+1\Site
+                     /note="/vntifkey=21"
+     CDS             3106..3120
+                     /codon_start=1
+                     /label=Anchor region
+                     /note="Anchor sequence for primer binding"
+                     /translation="HVWPP"
+     primer_bind     3106..3120
+                     /label=Primer 1
+                     /note="Adds tac promoter homology"
+     CDS             3121..3320
+                     /codon_start=1
+                     /label=Variable region
+                     /note="/at_content=0.6"
+                     /note="/at_skew=0.0"
+                     /note="/author=Ethan Holleman"
+                     /note="/clustered_nucleotide=nan"
+                     /note="/date=11-JUL-2021"
+                     /note="/gc_content=0.4"
+                     /note="/gc_skew=0.2"
+                     /note="/name=variable_region"
+                     /translation="RSSRSL*SSAHGGYYCSKDLANK*TELCLLIKGYYHDGSRILMRI
+                     KLWE*RLSDAIGLPQ*QSVNH"
+     CDS             join(3321,1..29)
+                     /codon_start=1
+                     /label=3_prime_HR
+                     /note="Homology arm of variable region insert taken from
+                     (base 1) positions 540-570 of pFC9"
+                     /note="/author=Ethan Holleman"
+                     /note="/date=07/08/2021"
+                     /note="/name=3' homology arm"
+                     /note="/pFC9_end=569"
+                     /note="/pFC9_seguid=NenxzxpELoRBEdYEmmDjvk0mvTk"
+                     /note="/pFC9_start=539"
+                     /translation="EFVAVTEARR"
+ORIGIN
+        1 aattcgtcgc agtgaccgag gcgaggaggc tatggcagtg gaccaggggg atgagtcggt
+       61 gtgacagtgg tgggggttgt gttggtggtc gcggcgcggg gagagtccgt aggaagtggc
+      121 tgggaggtag ggggaaggcg gcgacagtgg gtattggcgg cggtgggcat tggcagcggg
+      181 taggcatggc ggtggtggac tttggcggcg gtaggcatgg cggcggtggg catggcatgg
+      241 aggcggtggg catggcggcc gcggggcctg tcgctgtccg gagtgactaa gggacgctga
+      301 atgattgctg tgtagaggag ggggcatcag aaggggcagt agcacagtcc gcagccttta
+      361 attttcctgt gacctgcgat ggtcatctgg tttgcctact gtggtggtgg tgctttttta
+      421 ttaaaactgc gcaatgccta cactgccgca ggggctgcag aaatgcgtgg aatccgacgg
+      481 tatcgataag cttcagcttt tgttcccttt agtgagggtt aattctagag catgcctgca
+      541 ttaatgaatc ggccaacgcg cggggagagg cggtttgcgt attgggcgct cttccgcttc
+      601 ctcgctcact gactcgctgc gctcggtcgt tcggctgcgg cgagcggtat cagctcactc
+      661 aaaggcggta atacggttat ccacagaatc aggggataac gcaggaaaga acatgtgagc
+      721 aaaaggccag caaaaggcca ggaaccgtaa aaaggccgcg ttgctggcgt ttttccatag
+      781 gctcggcccc cctgacgagc atcacaaaaa tcgacgctca agtcagaggt ggcgaaaccc
+      841 gacaggacta taaagatacc aggcgttccc ccctggaagc tccctcgtgc gctctcctgt
+      901 tccgaccctg ccgcttaccg gatacctgtc cgcctttctc ccttcgggaa gcgtggcgct
+      961 ttctcaatgc tcacgctgta ggtatctcag ttcggtgtag gtcgttcgct ccaagctggg
+     1021 ctgtgtgcac gaaccccccg ttcagcccga ccgctgcgcc ttatccggta actatcgtct
+     1081 tgagtccaac ccggtaagac acgacttatc gccactggca gcagccactg gtaacaggat
+     1141 tagcagagcg aggtatgtag gcggtgctac agagttcttg aagtggtggc ctaactacgg
+     1201 ctacactaga aggacagtat ttggtatctg cgctctgctg aagccagtta ccttcggaaa
+     1261 aagagttggt agctcttgat ccggcaaaca aaccaccgct ggtagcggtg gtttttttgt
+     1321 ttgcaagcag cagattacgc gcagaaaaaa aggatctcaa gaagatcctt tgatcttttc
+     1381 tacggggtct gacgctcagt ggaacgaaaa ctcacgttaa gggattttgg tcatgagatt
+     1441 atcaaaaagg atcttcacct agatcctttt aaattaaaaa tgaagtttta aatcaatcta
+     1501 aagtatatat gagtaaactt ggtctgacag ttaccaatgc ttaatcagtg aggcacctat
+     1561 ctcagcgatc tgtctatttc gttcatccat agttgcctga ctgcccgtcg tgtagataac
+     1621 tacgatacgg gagggcttac catctggccc cagtgctgca atgataccgc gagacccacg
+     1681 ctcaccggct ccagatttat cagcaataaa ccagccagcc ggaagggccg agcgcagaag
+     1741 tggtcctgca actttatccg cctccatcca gtctattaat tgttgccggg aagctagagt
+     1801 aagtagttcg ccagttaata gtttgcgcaa cgttgttgcc attgctacag gcatcgtggt
+     1861 gtcacgctcg tcgtttggta tggcttcatt cagctccggt tcccaacgat caaggcgagt
+     1921 tacatgatcc cccatgttgt gaaaaaaagc ggttagctcc ttcggtcctc cgatcgttgt
+     1981 cagaagtaag ttggccgcag tgttatcact catgcttatg gcagcactgc ataattctct
+     2041 tactgtcatg ccatccgtaa gatgcttttc tgtgactggt gagtactcaa ccaagtcatt
+     2101 ctgagaatag tgtatgcggc gaccgagttg ctcttgcccg gcgtcaatac gggataatac
+     2161 cgcgccacat agcagaactt taaaagtgct catcattgga aaacgttctt cggggcgaaa
+     2221 actctcaagg atcttaccgc tgttgagatc cagttcgatg taacccactc gtgcacccaa
+     2281 ctgatcttca gcatctttta ctttcaccag cgtttctggg tgagcaaaaa caggaaggca
+     2341 aaatgccgca aaaaagggaa taagggcgac acggaaatgt tgaatactca tactcttcct
+     2401 ttttcaatat tattgaagca tttatcaggg ttattgtctc atgagcggat acatatttga
+     2461 atgtatttag aaaaataaac aaataggggt tccgcgcaca tttccccgaa aagtgccacc
+     2521 tgaaattgta aacgttaata ttttgttaaa attcgcgtta aatttttgtt aaatcagctc
+     2581 attttttaac caataggccg aaatcggcaa aatcccttat aaatcaaaag aatagaccga
+     2641 gatagggttg agtgttgttc cagtttggaa caagagtcca ctattaaaga acgtggactc
+     2701 caacgtcaaa gggcgaaaaa ccgtctatca gggcgatggc ccactacgtg aaccatcacc
+     2761 ctaatcaagt tttttggggt cgaggtgccg taaagcacta aatcggaacc ctaaagggag
+     2821 cccccgattt agagcttgac ggggaaagcc ggcgaacgtg gcgagaaagg aagggaagaa
+     2881 agcgaaagga gcgggcgcta gggcgctggc aagtgtagcg gtcacgctgc gcgtaaccac
+     2941 cacacccgcc gcgcttaatg cgccgctaca gggcgcgtcc cattcgccat tcaggctacg
+     3001 caactgttgg gaagggcgat cggtgcgggc ctcttcgcta ttacgccagg gatcctgcag
+     3061 taatacgact cactataggg cgaattggag ctccacatcg gtacccacgt ttggccacca
+     3121 cgctcttctc gatcacttta atcctctgct catggtgggt attactgcag caaagacttg
+     3181 gcaaacaagt gaactgaatt atgtttgttg ataaagggat attatcacga tgggtcgcgg
+     3241 attttaatga gaattaaatt gtgggaatag aggttatcag acgcgattgg actaccgcag
+     3301 taacagagtg ttaatcataa g
+//
