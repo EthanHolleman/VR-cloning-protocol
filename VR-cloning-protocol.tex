@@ -8,6 +8,7 @@
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{helvet}
+\usepackage[table]{xcolor}
 \renewcommand{\familydefault}{\sfdefault}
 %\usepackage{titlesec}
 %\titlespacing\section{1pt}{12pt plus 2pt minus 2pt}{1pt plus 2pt minus 2pt}
@@ -272,6 +273,17 @@ First primers two pairs of primers are used to add amplify the anchor region, va
 
 \subsubsection{Tac initiation series primer design}
 
+\begin{figure}[H]
+	\includegraphics[width=15cm]{images/primers/tac_init_primers/anchor-tac-promoter.png}
+	\centering
+	\caption{Diagram of pFC9 insertion series cloning strategy.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=15cm]{images/primers/tac_init_primers/extension-tac-terminators.png}
+	\centering
+	\caption{Diagram of pFC9 insertion series cloning strategy.}
+\end{figure}
 
 
 \subsection{Tac termination series constructs}
@@ -286,6 +298,19 @@ First primers two pairs of primers are used to add amplify the anchor region, va
 
 \subsubsection{Tac termination series primer design}
 
+\begin{figure}[H]
+	\includegraphics[width=15cm]{images/primers/tac_term_primers/placeholder-init-tac-promoter.png}
+	\centering
+	\caption{Diagram of pFC9 insertion series cloning strategy.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=15cm]{images/primers/tac_term_primers/anchor-terminators.png}
+	\centering
+	\caption{Diagram of pFC9 insertion series cloning strategy.}
+\end{figure}
+
+
 \subsection{Validation of insert libraries}
 
 Use qPCR with primers for subset of variable regions with divergent characteristics should be present in equal quantities or just use primers for everything but then need to design unique primers or at least one primer that ends in the variable region so is specific to each insert. 
@@ -295,9 +320,20 @@ Use qPCR with primers for subset of variable regions with divergent characterist
 Short description of SMRF-seq protocol using barcoded PCR primers for amplification 
 and anticipated data analysis. 
 
-\section{Sequence availability}
+\subsection{Reagents}
 
-Final versions of all complete insert sequences in fasta and genbank format are available at this link. For convenience, a copy of the fasta formatted file is also included in this document in section \ref{sec:fasta-inserts}. 
+\begin{itemize}
+	\item \href{https://www.neb.com/products/e2611-gibson-assembly-master-mix#Product\%20Information_Properties\%20\&\%20Usage}{NEB Gibson assembly master mix}
+	\item \href{https://www.neb.com/products/m0491-q5-high-fidelity-dna-polymerase#Product\%20Information}{NEB High-Fidelity DNA Polymerase}
+	\item \href{https://www.neb.com/products/r0176-dpni?__cf_chl_jschl_tk__=d22d8cb49b9b2d4ff2532de61875fea36af4066f-1626291600-0-ARBMmni5PdhcCrqckk9zN05YGR50cB-otICbDTrUStRYlPQzdrbyJvjEOoI2QusMU-HOcKBcontIQfQRYoQqN9R2hNCL0XzFa2hP3-_c6Vf1sL2Sb2Bs_DXW38t8Oc1NxSg0caQ4FlAGqVNswAJaml9BhLC5dWj1sCuqKwDj72JKO8eI9d3mlCcNVIAVs8n1xFpuo1_oyafffkTnQ-ysv358pg1RrIbChfkwqXctDQennQm_CRjVjuitrXFFNjgAqBDJBKFRMZKkoOYlTDEDBsuaQaQtMxNwL5u7yIJ5mNCrkkuiikIGg7Was3tNj1d7D-7bnJrfXr8jIfG3qW6kvIkrZBJey0JQAVMQGVc4Ps0t0_iS3P4ahcZRytZezR6Fq9lrMqGJkB_Xmxyr0cVoXrbIv136yLISC-RPNR4MDWXe#Product\%20Information}{DpnI}, optionally use for digesting plasmid DNA after amplication of inserts
+\end{itemize}
+
+\subsection{Additional resources}
+
+\begin{itemize}
+	\item \href{https://www.neb.com/applications/cloning-and-synthetic-biology/dna-assembly-and-cloning/gibson-assembly}{NEB Gibson assembly protocols}
+	\item \href{https://openwetware.org/wiki/Janet_B._Matsen:Guide_to_Gibson_Assembly}{Janet B. Matsen: Open Wet Ware Gibson assembly}
+\end{itemize}
 
 
 \section{Code availability}
@@ -305,6 +341,22 @@ Final versions of all complete insert sequences in fasta and genbank format are 
 All code used in insert creation and analysis is available here. The source code for this document is available at the GitHub repository \href{https://github.com/EthanHolleman/plasmid-VR-design}{at this link}.
 
 \section{Supplementary materials}
+
+\subsection{NEB Restriction enzyme activities}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{@{}lllll@{}}
+		\toprule
+		Enzyme     & 1.1 & 2.1 & 3.1           & CutSmart \\ \midrule
+		EcoRI      & 25  & 100 & 50            & 50       \\
+		EcoRI-HF   & 10  & 100 & \textless{}10 & 100      \\
+		KpnI       & 100 & 75  & \textless{}10 & 50       \\
+		KpnI-HF    & 100 & 25  & 10            & 100      \\
+		HindIII    & 25  & 100 & 50            & 50       \\
+		HindIII-HF & 10  & 100 & 100           & 100      \\ \bottomrule
+	\end{tabular}
+\end{table}
 
 \subsection{Variable region snakemake pipeline diagram}
 
@@ -512,13 +564,6 @@ CGTCAGTCCAGCAGTGGCCGCGTTGATGGGCGGGATGGTGGATGGACATGGGAAGGGGCC
 TCTCGAGGCGGGGTGTAAGCGGGGGGACGTAGGAGGACTGGATTGGGCGGCGGTAGGCTG
 GCACGGAATTCGTCGCAGTGACCGAGGCGAGGAGG
 \end{verbatim}
-
-\subsection{Complete inserts in fasta format}
-
-
-\subsection{RNA secondary structure expectation plots}
-
-
 
 
 \pagebreak
