@@ -3,6 +3,7 @@
 \usepackage{graphicx}
 \usepackage{wrapfig}
 \usepackage{float}
+\usepackage{fancyvrb}
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage[T1]{fontenc}
@@ -252,7 +253,7 @@ After the successful sequencing of the T7 initiation series, pFC8 will be utiliz
  First, the strongest and most consistent R-loop initiator identified from the T7 initiation series will serve as the substrate for an additional synthetic double stranded DNA fragment containing the strong initiator sequence flanked by  HindIII and EcoRI recognition sequences (\ref{clone:T7-term}A). This strong initiator fragment will be added to pFC8  (\ref{clone:T7-term}B) and then the mixture digested with HindIII and EcoRI. The strong initiator will then anneal to the large pFC8 fragment via homology between the digested HindIII and EcoRI recognition sites (\ref{clone:T7-term}C). Next all termination inserts will be added to the pFC8-strong-initiator construct in equal concentrations (\ref{clone:T7-term}D) and the mixture digested with KpnI and EcoRI (\ref{clone:T7-term}E). Inserts will then be incorporated into pFC8-strong-initiator constructs via homology between the digested KpnI and EcoRI sites (\ref{clone:T7-term}F). Since the order of these recognition sites on the pFC8-strong-initiator construct is opposite to that of the insert with respect to the T7 promoter the inserts will be present in the final construct in the reverse orientation and place the variable region downstream of the strong initiator (\ref{clone:T7-term}G). 
  
  \begin{figure}[H]
- 	\includegraphics[width=12cm]{images/plasmid_maps/T7_term_VR-1 Map_simulated_assembly.png}
+ 	\includegraphics[width=12cm]{images/plasmid_maps/T7_term_VR-1 Map.png}
  	\centering
  	\caption{Plasmid map of produced by simulating the T7 termination series cloning protocol for the insert containing variable region 1. Cloning simulations were ran and confirmed to be successful for all complete inserts sequences. Note that since the strong initiation sequence that was used is to be determined a \href{https://github.com/EthanHolleman/plasmid-VR-design/blob/main/notes/placeholder_strong_initiator.ipynb}{simulated but functionally equivalent sequence} was used in its place and is not shown in the map image.}
  	\label{clone:T7-term-insert-simulated}
@@ -262,7 +263,6 @@ After the successful sequencing of the T7 initiation series, pFC8 will be utiliz
 \subsection{Tac initiation series constructs}
 \label{sec:tac-init}
 
-
 \begin{figure}[H]
 	\includegraphics[width=15cm]{images/cloning_diagrams/construct_diagrams-Tac-initiation-series.png}
 	\centering
@@ -271,18 +271,52 @@ After the successful sequencing of the T7 initiation series, pFC8 will be utiliz
 
 First primers two pairs of primers are used to add amplify the anchor region, variable region, EcoRI recognition site and extension region from the T7 initiation construct library (\ref{sec:tac-init}). These primers will also contain 15 bp overhangs with homology to the 5' end of the tac promoter and 3' T1T2 terminator sequences. Next, the PCR products are added to pFC53T1T2 
 
-\subsubsection{Tac initiation series primer design}
-
 \begin{figure}[H]
-	\includegraphics[width=15cm]{images/primers/tac_init_primers/anchor-tac-promoter.png}
+	\includegraphics[width=15cm]{images/plasmid_maps/tac_init_simulated_assembly.png}
 	\centering
-	\caption{Diagram of pFC9 insertion series cloning strategy.}
+	\caption{Plasmid map produced by simulating tac initiation series assembly protocols.}
 \end{figure}
 
+
+\subsubsection{Tac initiation series primer design}
+
+
 \begin{figure}[H]
-	\includegraphics[width=15cm]{images/primers/tac_init_primers/extension-tac-terminators.png}
 	\centering
-	\caption{Diagram of pFC9 insertion series cloning strategy.}
+	\begin{subfigure}[b]{\textwidth}
+		\centering
+		\includegraphics[width=0.75\textwidth]{images/primers/t7-init-forward.png}
+		\caption{Forward primer. Targets the anchor region and adds homology to the downstream end of the Tac promoter of the pFC53T1T2 backbone and regenerates the digested KpnI site.}
+		\label{fig:y equals x}
+	\end{subfigure}
+	\vfill
+	\begin{subfigure}[b]{\textwidth}
+		\centering
+		\includegraphics[width=0.75\textwidth]{images/primers/t7-init-reverse.png}
+		\caption{Reverse primer. Targets an arbitrary region 1000 nucleotides downstream of the end of the insert in order to include an "extension region" downstream of the variable region. Adds homology to the upstream end of the T1T2 terminator sequence of the pFC53T1T2 backbone and regenerates the digested HindIII site.}
+		\label{fig:three sin x}
+	\end{subfigure}
+	\vfill
+	\begin{subfigure}[b]{\textwidth}
+		\centering
+		\includegraphics[width=0.75\textwidth]{images/primers/t7-init-amplicon.png}
+		\caption{Amplicon produced by the forward and reverse primers.}
+		\label{fig:three sin x}
+	\end{subfigure}
+	\caption{PCR primers and resulting amplicon used to produce tac initiation series constructs.}
+\end{figure}
+
+
+\begin{figure}[H]
+	\centering
+	\begin{BVerbatim}
+	|95°C|95°C               |    |tmf:73.4
+	|____|_____          72°C|72°C|tmr:78.5
+	|5min|30s  \ 64.4°C _____|____|45s/kb
+	|    |      \______/ 0:59|5min|GC 55%
+	|    |       30s         |    |1318bp
+	\end{BVerbatim}
+	\caption{PCR program for Tac polymerase for tac initiation series primers.}
 \end{figure}
 
 
@@ -296,19 +330,42 @@ First primers two pairs of primers are used to add amplify the anchor region, va
 	\caption{Diagram of pFC9 insertion series cloning strategy.}
 \end{figure}
 
+\begin{figure}[H]
+	\includegraphics[width=15cm]{images/plasmid_maps/tac_term_simulated_assembly.png}
+	\centering
+	\caption{Plasmid map produced by simulating tac termination series assembly protocols.}
+\end{figure}
+
 \subsubsection{Tac termination series primer design}
 
 \begin{figure}[H]
-	\includegraphics[width=15cm]{images/primers/tac_term_primers/placeholder-init-tac-promoter.png}
 	\centering
-	\caption{Diagram of pFC9 insertion series cloning strategy.}
+	\begin{subfigure}[b]{\textwidth}
+		\centering
+		\includegraphics[width=0.75\textwidth]{images/primers/t7-term-forward.png}
+		\caption{Forward primer. Targets the 5' end of the placeholder strong initiator and adds homology to the downstream end of adds homology to the downstream end of the Tac promoter of the pFC53T1T2 backbone and regenerates the KpnI site.}
+		\label{fig:y equals x}
+	\end{subfigure}
+	\vfill
+	\begin{subfigure}[b]{\textwidth}
+		\centering
+		\includegraphics[width=0.75\textwidth]{images/primers/t7-term-reverse.png}
+		\caption{Reverse primer. Targets the anchor region and adds homology to the to the upstream end of the T1T2 terminator sequence of the pFC53T1T2 backbone and regenerates the HindIII site.}
+		\label{fig:three sin x}
+	\end{subfigure}
+	\vfill
+	\begin{subfigure}[b]{\textwidth}
+		\centering
+		\includegraphics[width=0.75\textwidth]{images/primers/t7-term-amplicon.png}
+		\caption{Amplicon produced by the forward and reverse primers.}
+		\label{fig:three sin x}
+	\end{subfigure}
+	\caption{PCR primers and resulting amplicon used to produce tac termination series constructs.}
 \end{figure}
 
-\begin{figure}[H]
-	\includegraphics[width=15cm]{images/primers/tac_term_primers/anchor-terminators.png}
-	\centering
-	\caption{Diagram of pFC9 insertion series cloning strategy.}
-\end{figure}
+
+A PCR program is not included here as an placeholder initiation region was used to demonstrate how tac termination series primers would be designed. Therefore until an actual strong initiator region is determined and verified these primers should \emph{not} be ordered. Code to generate both initiation and termination series primers and PCR programs is available as a Jupyter notebook \href{https://github.com/EthanHolleman/plasmid-VR-design/blob/main/notes/tac_series_primers.ipynb}{at this link}. 
+
 
 
 \subsection{Validation of insert libraries}

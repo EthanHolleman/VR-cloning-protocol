@@ -1,0 +1,12 @@
+Sequence,URL
+Tac initiation series primers,
+Tac termination series primers,
+Complete inserts,
+Variable regions,
+Simulated T7 initiation constructs,
+Simulated T7 termination constructs,
+5’ homology arm,https://github.com/EthanHolleman/plasmid-VR-design/blob/main/resources/files/genbank/5_prime_homology_arm.gb
+3’ homology arm,https://github.com/EthanHolleman/plasmid-VR-design/blob/main/resources/files/genbank/3_prime_homology_arm.gb
+pFC53T1T2,https://github.com/EthanHolleman/plasmid-VR-design/blob/main/resources/files/genbank/pFC53tacT1T2.gb
+pFC8,https://github.com/EthanHolleman/plasmid-VR-design/blob/main/resources/files/genbank/pFC8.gb
+pFC9,https://github.com/EthanHolleman/plasmid-VR-design/blob/main/resources/files/genbank/pFC9.gb
