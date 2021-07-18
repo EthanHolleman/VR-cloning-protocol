@@ -40,16 +40,16 @@
 \begin{document}
 
 \maketitle
-\begin{abstract}
-	Abstract text here
-\end{abstract}
+%\begin{abstract}
+%	Abstract text here
+%\end{abstract}
 
 \tableofcontents
 \pagebreak
 
 \section{Background}
 
-R-loops are prevalent, functional important, non-B DNA structures that form co-transcriptionally when the nascent RNA strand hybridizes back to the DNA template forming a DNA-RNA hybrid \cite{chedin_nascent_2016}. R-loops are formed ubiquitously across the genomes of all organisms often occupying a large fractions of the genomes in a cell population. 
+R-loops are prevalent, functionally important, non-B DNA structures that form co-transcriptionally when the nascent RNA strand hybridizes back to the DNA template forming a DNA-RNA hybrid \cite{chedin_nascent_2016}. R-loops are formed ubiquitously across the genomes of all organisms often occupying large fractions of the genomes in a cell population. 
 
 \begin{figure}[H]
 	\includegraphics[width=12cm]{images/r-loops/rloop_stages.png}
@@ -58,12 +58,12 @@ R-loops are prevalent, functional important, non-B DNA structures that form co-t
 	\label{fig:1}
 \end{figure}
 
-R-loops have been shown to cover approximately 5\% of the human genome, and generally, their formation is favored by regions with high GC-skew and GC content as the potential DNA-RNA hybrids formed over these sequences tend to be more energetically favorable \cite{Stolz2019}. Beyond these broad associations there has been little investigation into the specific sequence characteristics that influence R-loop initiation and termination, representing a significant gap in knowledge that continues to become increasingly pressing as the recognized scope of these structure's impact of cellular functions continues to grow. Here, I describe a detailed strategy for the systematic investigation of the impact of DNA sequence on R-loop initiation and termination which seeks to implement the methods described by Vazquez, Chedin and Natasa in NSF proposal number 2054347. 
+R-loops have been shown to cover approximately 5\% of the human genome, and generally, their formation is favored by regions with high GC skew (overabundance of G over C nucleotides) and GC content (percentage of G and C nucleotides) as the potential DNA-RNA hybrids formed over these sequences tend to be more energetically favorable with respect to R-loop formation\cite{Stolz2019}. Beyond these broad associations there has been little investigation into the specific sequence characteristics that influence R-loop initiation and termination, representing a significant gap in knowledge that continues to become increasingly pressing as the recognized scope of these structure's impact on cellular functions continues to grow. Here, I describe a detailed strategy for the systematic investigation of the impact of DNA sequence on R-loop initiation and termination which seeks to implement the methods described by Vazquez, Chedin and Natasa in NSF proposal number 2054347. 
 
 
 \section{Insert design}
 
-The overall goal of this series of experiments is to transcribe carefully controlled DNA sequences, referred to as inserts, in order to systematically observe the effects of these controlled sequences on R-loop initiation and termination \emph{in vitro}. Inserts are composed of two types of DNA components; the variable and flanking infrastructure regions. The variable region is the actual region of interest with respect to R-loop formation while infrastructure sequences are additional nucleotide blocks that allow for the insertion of variable regions into specific plasmid backbones (see section \ref{}) in a modular fashion. 
+The overall goal of this series of experiments is to transcribe carefully controlled DNA sequences, referred to as inserts, in order to systematically observe the effects of these controlled sequences on R-loop initiation and termination \emph{in vitro}. Inserts are composed of two types of DNA components; the variable and infrastructure regions. The variable region is the sequence of interest with respect to R-loop formation while infrastructure sequences are additional nucleotide blocks that allow for the insertion of variable regions into specific plasmid backbones (see section \ref{}) in a modular fashion. The distinct regions that compose each insert are described below. 
 
 \begin{figure}[H]
 	\includegraphics[width=16cm]{images/variable_region/construct_diagrams-Detailed-Insert.png}
@@ -87,35 +87,114 @@ The first 30 bp of each insert will be composed of the 5' homology arm and a Kpn
 This strategy will mean recognition sites for Eco53KI, SacI and Acc65I will be included in the 5' homology arms. However, none of these enzymes will be utilized in any cloning protocols and so only the KpnI site is noted in diagrams.
 
 
-\subsubsection{Anchor}
+\subsubsection{Anchor region}
 
-The anchor region serves as a constant 15 nucleotide sequence that is always present in any final assembled construct adjacent to the 5' end of the variable region. This region provides significant utility when attempting to clone inserts already present in a plasmid into an alternative backbone as the number of primers required to amplify the insert region will not be dependent on the the number of variable regions but the number of unique backbones.This utility is more explicitly shown in sections \ref{sec:tac-init} and \ref{sec:tac-termination}. 
+The anchor region serves as a constant 15 nucleotide sequence that is always present in any final assembled construct adjacent to the 5' end of the variable region. This region provides significant utility when attempting to clone inserts already present in a plasmid into an alternative backbone. As long as the anchor region is present and intact, the number of primers required to amplify the insert region will not be dependent on the number of variable regions but the number of unique backbones. This utility is more explicitly shown in sections \ref{sec:tac-init} and \ref{sec:tac-termination}. 
 
 Since this region is intended to be used as part of a PCR primer it was selected from candidate random sequences that satisfied the requirements below.
 
 \begin{itemize}
 	\item Does not contain any common sub-strings of minimum length equal to 75\% of the anchor's own length with any variable region or plasmid backbone.
 	\item Does not contain the recognition sites for any restriction enzyme used in any relevant cloning procedure (see table \ref{tab:enzymes}).
-	\item Has a melting temperature estimated by using \href{https://biopython.org/docs/1.75/api/Bio.SeqUtils.MeltingTemp.html#Bio.SeqUtils.MeltingTemp.Tm_GC}{nearest neighbor thermodynamics} of at least 50\textdegree C.
+	\item Does not contain single stretches of single nucleotides greater than three nucleotides in length.
 \end{itemize}
 
 The final anchor region sequence is available for download \href{}{at this link}.
 
 \subsubsection{Variable regions}
 
-Each insert will contain 1 variable region designed to test the effects of different sequence, namely GC / AT skew, GC content and G / C clustering, on both R-loop initiation and termination. Each variable region will be 200 bp in length and twenty nine different variable regions with the properties described in table \ref{table:1} will ultimately be synthesized. 
+Each insert will contain 1 variable region designed to test the effects of different sequence properties, namely GC / AT skew, GC content and G / C clustering, on R-loop initiation and termination. Each variable region will be 200 bp in length and 31 different variable regions with the properties described in table \ref{table:1} will ultimately be synthesized. 
 
-\input{tables/syn_VRs}
+\begin{table}
+	\centering
+\begin{tabular}{lrrrl}
+	\toprule
+	name &  GC skew &  GC content &  AT skew & G cluster length \\
+	\midrule
+	VR-1 &      0.0 &         0.4 &      0.0 &             NA \\
+	VR-2 &      0.0 &         0.5 &      0.0 &             NA \\
+	VR-3 &      0.0 &         0.6 &      0.0 &             NA \\
+	VR-4 &      0.0 &         0.7 &      0.0 &             NA \\
+	VR-5 &      0.1 &         0.4 &      0.0 &             NA \\
+	VR-6 &      0.1 &         0.5 &      0.0 &             NA \\
+	VR-7 &      0.1 &         0.6 &      0.0 &             NA \\
+	VR-8 &      0.1 &         0.7 &      0.0 &             NA \\
+	VR-9 &      0.2 &         0.4 &      0.0 &             NA \\
+	VR-10 &      0.2 &         0.5 &      0.0 &             NA \\
+	VR-11 &      0.2 &         0.6 &      0.0 &             NA \\
+	VR-12 &      0.2 &         0.7 &      0.0 &             NA \\
+	VR-13 &      0.4 &         0.4 &      0.0 &             NA \\
+	VR-14 &      0.4 &         0.5 &      0.0 &             NA \\
+	VR-15 &      0.4 &         0.6 &      0.0 &              2 \\
+	VR-16 &      0.4 &         0.6 &      0.0 &              3 \\
+	VR-17 &      0.4 &         0.6 &      0.0 &              4 \\
+	VR-18 &      0.4 &         0.6 &      0.0 &             NA \\
+	VR-19 &      0.4 &         0.6 &      0.2 &              2 \\
+	VR-20 &      0.4 &         0.6 &      0.2 &              3 \\
+	VR-21 &      0.4 &         0.6 &      0.2 &              4 \\
+	VR-22 &      0.4 &         0.6 &      0.2 &             NA \\
+	VR-23 &      0.4 &         0.6 &      0.4 &              2 \\
+	VR-24 &      0.4 &         0.6 &      0.4 &              3 \\
+	VR-25 &      0.4 &         0.6 &      0.4 &              4 \\
+	VR-26 &      0.4 &         0.6 &      0.4 &             NA \\
+	VR-27 &      0.4 &         0.7 &      0.0 &             NA \\
+	VR-28 &      0.6 &         0.4 &      0.0 &             NA \\
+	VR-29 &      0.6 &         0.5 &      0.0 &             NA \\
+	VR-30 &      0.6 &         0.6 &      0.0 &             NA \\
+	VR-31 &      0.6 &         0.7 &      0.0 &             NA \\
+	\bottomrule
+\end{tabular}
+\caption{Properties of all variable regions. NA in the G cluster length column indicates that the guanines are un-clustered. Clustered guanines were distributed randomly throughput the sequence with a minimum distance of five nucleotides between adjacent clusters.}
+\label{table:1}
+\end{table}
 
-Each variable region is designed so that it may be used to test sequence effects on R-loop initiation when transcribed in the forward direction and placed adjacent to a promoter or R-loop termination when transcribed in reverse and placed more distantly to a promoter. Variable regions that will be tested as initiators and terminators are marked with a 1 in the reverse complement column of \ref{table:1} and the properties of their reverse complements are described in table \ref{table:2}. 
 
-\input{tables/RC_VRs}
+Each variable region is designed so that it may be used to test sequence effects on R-loop initiation when oriented in the same direction as a proximal promoter and R-loop termination when oppositely oriented to an upstream promoter. The properties of the reverse complements, representing transcription of variable regions in the reverse orientation, are listed in table \ref{table:2}. 
 
-The cloning experiments required to produce these termination constructs will be undertaken after initiation experiments are completed. This will allow for the identification of a strong initiation sequence that can be used to reliability form R-loops. 
+\begin{table}
+	\label{table:2}
+	\centering
+\begin{tabular}{lrrrl}
+	\toprule
+	name &  GC skew &  GC content &  AT skew & C cluster length \\
+	\midrule
+	VR-1 &      0.0 &         0.6 &      0.0 &             NA \\
+	VR-2 &      0.0 &         0.5 &      0.0 &             NA \\
+	VR-3 &      0.0 &         0.4 &      0.0 &             NA \\
+	VR-4 &      0.0 &         0.3 &      0.0 &             NA \\
+	VR-5 &     -0.1 &         0.6 &      0.0 &             NA \\
+	VR-6 &     -0.1 &         0.5 &      0.0 &             NA \\
+	VR-7 &     -0.1 &         0.4 &      0.0 &             NA \\
+	VR-8 &     -0.1 &         0.3 &      0.0 &             NA \\
+	VR-9 &     -0.2 &         0.6 &      0.0 &             NA \\
+	VR-10 &     -0.2 &         0.5 &      0.0 &             NA \\
+	VR-11 &     -0.2 &         0.4 &      0.0 &             NA \\
+	VR-12 &     -0.2 &         0.3 &      0.0 &             NA \\
+	VR-13 &     -0.4 &         0.6 &      0.0 &             NA \\
+	VR-14 &     -0.4 &         0.5 &      0.0 &             NA \\
+	VR-15 &     -0.4 &         0.4 &      0.0 &              2 \\
+	VR-16 &     -0.4 &         0.4 &      0.0 &              3 \\
+	VR-17 &     -0.4 &         0.4 &      0.0 &              4 \\
+	VR-18 &     -0.4 &         0.4 &      0.0 &             NA \\
+	VR-19 &     -0.4 &         0.4 &     -0.2 &              2 \\
+	VR-20 &     -0.4 &         0.4 &     -0.2 &              3 \\
+	VR-21 &     -0.4 &         0.4 &     -0.2 &              4 \\
+	VR-22 &     -0.4 &         0.4 &     -0.2 &             NA \\
+	VR-23 &     -0.4 &         0.4 &     -0.4 &              2 \\
+	VR-24 &     -0.4 &         0.4 &     -0.4 &              3 \\
+	VR-25 &     -0.4 &         0.4 &     -0.4 &              4 \\
+	VR-26 &     -0.4 &         0.4 &     -0.4 &             NA \\
+	VR-27 &     -0.4 &         0.3 &      0.0 &             NA \\
+	VR-28 &     -0.6 &         0.6 &      0.0 &             NA \\
+	VR-29 &     -0.6 &         0.5 &      0.0 &             NA \\
+	VR-30 &     -0.6 &         0.4 &      0.0 &             NA \\
+	VR-31 &     -0.6 &         0.3 &      0.0 &             NA \\
+	\bottomrule
+\end{tabular}
+\caption{Properties of the reverse complements of all variable regions described in table \ref{table:1}}.
+\end{table}
 
-\input{tables/total_VR_counts}
-
-While the global sequence properties for each variable region are well defined, properties such as GC-skew, content or nucleotide clustering do not determine which particular nucleotide should occur at a specific position in a given sequence. In this way, the parameters that define and separate each variable region can be thought of as bounding the set of all possible nucleotide sequences of length 200. In order to select one specific sequence from this set we can sample a large number of sequences and access each one with metrics relevant to the realities of the various cloning protocols and R-loop formation. 
+While the global sequence properties for each variable region are well defined, properties such as GC-skew, content or nucleotide clustering do not determine which particular nucleotide should occur at a specific position in a given sequence. In this way, the parameters that define and separate each variable region can be thought of as bounding the set of all possible nucleotide sequences of length 200. In order to select one specific sequence from this set we can sample a large number of sequences and access each one with metrics relevant to the realities of cloning protocols and R-loop formation. Each metric used to access candidate variable regions are described below. All metrics received equal weight in final candidate selection. 
 
 \begin{figure}[H]
 	\includegraphics[width=18cm]{images/plots/VR-1.all_ranked.png}
@@ -127,7 +206,7 @@ While the global sequence properties for each variable region are well defined, 
 
 \paragraph{Restriction enzyme recognition sites}
 
-Over the course of all planned cloning experiments, all the restriction enzymes in table \ref{} will be utilized in some capacity. It is critical that the inserts are not cut unexpectedly within the variable region by any of these enzymes. Accordingly, before passing on for further downstream analysis candidate variable regions containing any of the recognition sites listed in table \ref{tab:enzymes} were removed from consideration.
+It is critical that the inserts are not cut unexpectedly within the variable region by any of the restriction enzymes used as a part of cloning protocols. Accordingly, before passing on for further downstream analysis candidate variable regions containing any of the recognition sites listed in table \ref{tab:enzymes} were removed from consideration.
 
 \begin{table}[H]
 	\caption{}
@@ -145,12 +224,12 @@ Over the course of all planned cloning experiments, all the restriction enzymes 
 
 \paragraph{Predicted R-loop probability}
 
-Previous Chedin lab member Dr. Robert Stolz developed rlooper, a physics based equilibrium model for predicting the probability of R-loop formation over a given DNA sequence \cite{Stolz2019}. Rlooper output includes a predicted probability of R-loop formation at each base in the input sequence, and the calculated average free energy (local average energy) from all R-loops overlapping that particular nucleotide. Since, for this analysis, we prefer to select variable regions that are more likely to form R-loops these metrics are also used to compare and rank candidate variable regions with highest ranking sequences having low mean local average energy and high average R-loop probability compared to all sequences generated with the same parameters. 
+Previous Chedin lab member Dr. Robert Stolz developed Rlooper, a physics based equilibrium model for predicting the probability of R-loop formation over a given DNA sequence \cite{Stolz2019}. Rlooper output includes a predicted probability of R-loop formation at each base in the input sequence, and the calculated average free energy (local average energy) from all simulated R-loops overlapping that particular nucleotide. Since for this analysis, we prefer to select variable regions that are more likely to form R-loops, candidate variable regions with high mean R-loop formation probability and low mean local average energy are preferred and receive higher rankings.
 
 \begin{figure}[H]
 	\includegraphics[width=14cm]{images/plots/rlooper_expect_tile.png}
 	\centering
-	\caption{Heatmaps showing mean R-loop probability (left) and mean local average energy per sequence (right) for 100 sequences of length 200 at various levels of both GC skew and content. As GC skew and GC content increase, the mean R-loop probability also increase while the mean local average energy tends to decrease which aligns with the basic expectation that increased GC skew and content favor R-loop formation.}
+	\caption{Heatmaps showing mean R-loop probability per sequence (left) and mean local average energy per sequence (right) for 100 sequences of length 200 at various levels of GC skew and content. As GC skew and content increase, the mean R-loop probability also increases while the mean local average energy tends to decrease. This aligns with the basic expectation that increased GC skew and content favor R-loop formation.}
 	\label{fig:rlooper-expect}
 \end{figure}
 
@@ -159,7 +238,7 @@ Both local average energy and somewhat consequentially, mean R-loop probability 
 
 \paragraph{RNA secondary structure}
 
-Significant amounts of RNA secondary structure, especially large hairpins, can be expected to reduce the likelihood of R-loop formation by causing competition for binding to the nascent RNA strand between itself and the DNA template. To avoid selecting sequences that are predicted to form an anomalous degree of RNA secondary structure the SPOT-RNA in conjunction with bpRNA structure annotation \cite{Singh2019, Danaee2018} were used to calculate the estimated proportion of ribonucleotides in a given transcribed variable region that would participate in hairpin structures (PH) and the estimated proportion of that would remain unpaired (PUP). Candidate variable regions with low PH and high PUP were preferred.
+Significant amounts of RNA secondary structure, especially large hairpins, are expected to reduce the likelihood of R-loop formation by causing competition for binding to the nascent RNA strand between itself and the DNA template. To avoid selecting sequences that are predicted to form an anomalous degree of RNA secondary structure SPOT-RNA rNA secondary structure prediction program in conjunction with the bpRNA structure annotation program \cite{Singh2019, Danaee2018} were used to calculate the estimated proportion of ribonucleotides in a given transcribed variable region that would participate in hairpin structures (PH) and the estimated proportion that would remain unpaired (PUP). Candidate variable regions with low PH and high PUP were preferred.
 
 
 \begin{figure}[H]
@@ -169,11 +248,10 @@ Significant amounts of RNA secondary structure, especially large hairpins, can b
 	\label{fig:3_prime_arm}
 \end{figure}
 
-Need to update the above with same datapoints as R-looper
 
 \subsubsection{EcoRI site and 3' homology arm}
 
-The final 20 nucleotides of each insert will be composed of a EcoRI recognition site (6 bp) and the 3' homology arm (24 bp). 
+The final 30 nucleotides of each insert will be composed of a EcoRI recognition site (6 bp) and the 3' homology arm (24 bp). 
 
 \begin{figure}[H]
 	\includegraphics[width=10cm]{images/variable_region/3_homology_arm.png}
@@ -182,13 +260,12 @@ The final 20 nucleotides of each insert will be composed of a EcoRI recognition 
 	\label{fig:3_prime_arm}
 \end{figure}
 
-Both the 5' homology arm + KpnI site and EcoRI site + 3' homology arm were produced using the jupyter notebook available \href{https://github.com/EthanHolleman/plasmid-VR-design/blob/main/notes/homology_arms.ipynb}{at this link} and the final sequences are available in genbank format \href{https://github.com/EthanHolleman/plasmid-VR-design/tree/main/resources/files/genbank}{at this link}.
-
+Both the 5' homology arm + KpnI site and EcoRI site + 3' homology arm were produced using the Jupyter notebook available \href{https://github.com/EthanHolleman/plasmid-VR-design/blob/main/notes/homology_arms.ipynb}{at this link}.
 
 
 \section{Assembly of DNA inserts}
 
-Complete insert sequences will be cloned into three different plasmid backbones: pFC9 (fig \ref{fig:map_pFC8}), pFC8 (fig \ref{fig:map_pFC8}), and pFC53tacT$_1$T$_2$ (fig \ref{fig:map_pFC53tacT1T2}). pFC9 will be utilized for testing R-loop initiation, pFC8 for R-loop termination and pFC53tacT$_1$T$_2$ for multiple round and single-round transcription versions of both initiation and termination experiments with Tac polymerase. 
+Complete insert sequences will be cloned into three different plasmid backbones: pFC9 (fig \ref{fig:map_pFC8}), pFC8 (fig \ref{fig:map_pFC8}), and pFC53tacT$_1$T$_2$ (fig \ref{fig:map_pFC53tacT1T2}). pFC9 will be utilized for testing R-loop initiation, pFC8 for R-loop termination and pFC53tacT$_1$T$_2$ for multiple and single-round transcription versions of both initiation and termination experiments with Tac polymerase. 
 
 
 \begin{figure}[H]
@@ -215,8 +292,6 @@ Complete insert sequences will be cloned into three different plasmid backbones:
 \end{figure}
 
 
-
-
 \subsection{T7 initiation series constructs}
 \label{T7:init} 
 
@@ -228,7 +303,7 @@ Complete insert sequences will be cloned into three different plasmid backbones:
 	\label{clone:T7-insert}
 \end{figure}
 
-First, pFC9 will be linearized by digestion with KpnI and EcoRI  (fig \ref{clone:T7-insert}A). The large pFC9 fragment will then be purified and added to a mixture containing all insert sequences in equal concentration  (fig \ref{clone:T7-insert}B). Next, T5 exonuclease is added to digest the 5' ends of all DNA in the mixture. This will leave the 3' overhang of the digested KpnI site intact but degrade the 5' overhang of EcoRI  (fig \ref{clone:T7-insert}C). The 5' ends of the insert will also be degraded exposing exposing the complete KnpI and EcoRI sites present in each insert. Next, during Gibson assembly the 5' homology arm and KnpI site will anneal to the pFC9 large fragment, overhanging the digested KnpI site by 1 nucleotide; a C. Similarly, the 3' homology arm and intact EcoRI site of the inserts will anneal to the pFC9 large fragment, with only the last nucleotide (C) of the insert's intact EcoRI site annealing to the 3' G present at the digested EcoRI site of the pFC9 large fragment (fig \ref{clone:T7-insert}D). This will result in a library of circular constructs with all inserts located downstream of and oriented forward relative to, the pFC9 T7 promoter (fig \ref{clone:T7-insert}). 
+First, pFC9 will be linearized by digestion with KpnI and EcoRI  (fig \ref{clone:T7-insert}A). The large pFC9 fragment will then be purified via agarose gel and added to a mixture containing all insert sequences in equal molar concentrations (fig \ref{clone:T7-insert}B). Next, T5 exonuclease is added to digest the 5' ends of all DNA in the mixture. This will leave the 3' overhang of the digested KpnI site intact but degrade the 5' overhang of EcoRI  (fig \ref{clone:T7-insert}C). The 5' ends of the insert will also be degraded, exposing the complete KnpI and EcoRI sites. Next, during Gibson assembly the 5' homology arm and KnpI site will anneal to the pFC9 large fragment, overhanging the digested KnpI site by 1 nucleotide. Similarly, the 3' homology arm and intact EcoRI site of the inserts will anneal to the pFC9 large fragment, with only the last nucleotide (C) of the insert's intact EcoRI site annealing to the 3' G present at the digested EcoRI site of the pFC9 large fragment (fig \ref{clone:T7-insert}D). This will result in a library of circular constructs with all inserts located downstream of and oriented forward relative to, the pFC9 T7 promoter (fig \ref{clone:T7-insert}). 
 
 \begin{figure}[H]
 	\includegraphics[width=12cm]{images/plasmid_maps/T7_init_vr-1_simulated_assembly.png}
@@ -236,6 +311,10 @@ First, pFC9 will be linearized by digestion with KpnI and EcoRI  (fig \ref{clone
 	\caption{Plasmid map of produced by simulating the T7 initiation series cloning protocol for the insert containing variable region 1. Cloning simulations were ran and confirmed to be successful for all complete inserts sequences.}
 	\label{clone:T7-insert-simulated}
 \end{figure}
+
+\subsubsection{Assembly protocol}
+
+A Jupyter notebook for calculating the volumes of individual inserts, digested pFC9 backbone and Gibson assembly master mix to complete the Gibson assembly protocol outlined in fig \ref{clone:T7-insert-simulated} is available at this link. At the time of writing the concentration of pFC9 fragment and the concentrations of individual inserts are unknown and placeholder values that must be updated are currently used. All volumes and concentrations of reagents are derived from \href{https://www.neb.com/protocols/2012/12/11/gibson-assembly-protocol-e5510}{New England Biolabs Gibson assembly recommendations}.
 
 
 \subsection{T7 termination series constructs}
@@ -250,12 +329,12 @@ After the successful sequencing of the T7 initiation series, pFC8 will be utiliz
 	
 \end{figure}
 
- First, the strongest and most consistent R-loop initiator identified from the T7 initiation series will serve as the substrate for an additional synthetic double stranded DNA fragment containing the strong initiator sequence flanked by  HindIII and EcoRI recognition sequences (\ref{clone:T7-term}A). This strong initiator fragment will be added to pFC8  (\ref{clone:T7-term}B) and then the mixture digested with HindIII and EcoRI. The strong initiator will then anneal to the large pFC8 fragment via homology between the digested HindIII and EcoRI recognition sites (\ref{clone:T7-term}C). Next all termination inserts will be added to the pFC8-strong-initiator construct in equal concentrations (\ref{clone:T7-term}D) and the mixture digested with KpnI and EcoRI (\ref{clone:T7-term}E). Inserts will then be incorporated into pFC8-strong-initiator constructs via homology between the digested KpnI and EcoRI sites (\ref{clone:T7-term}F). Since the order of these recognition sites on the pFC8-strong-initiator construct is opposite to that of the insert with respect to the T7 promoter the inserts will be present in the final construct in the reverse orientation and place the variable region downstream of the strong initiator (\ref{clone:T7-term}G). 
+ First, the strongest and most consistent R-loop initiator identified from the T7 initiation series will serve as the substrate for an additional synthetic double stranded DNA fragment containing the strong initiator sequence flanked by  HindIII and EcoRI recognition sequences (\ref{clone:T7-term}A). This strong initiator fragment will be added to pFC8  (\ref{clone:T7-term}B) and then the mixture digested with HindIII and EcoRI. The strong initiator will then anneal to the large pFC8 fragment via homology between the digested HindIII and EcoRI recognition sites (\ref{clone:T7-term}C). Next all termination inserts will be added to the pFC8-strong-initiator construct in equal molar ratios (\ref{clone:T7-term}D) and the mixture digested with KpnI and EcoRI (\ref{clone:T7-term}E). Inserts will then be incorporated into pFC8-strong-initiator constructs via homology between the digested KpnI and EcoRI sites (\ref{clone:T7-term}F). Since the order of these recognition sites on the pFC8-strong-initiator construct is opposite to that of the insert with respect to the T7 promoter the inserts will be present in the final construct in the reverse orientation and place the variable region downstream of the strong initiator (\ref{clone:T7-term}G). 
  
  \begin{figure}[H]
  	\includegraphics[width=12cm]{images/plasmid_maps/T7_term_VR-1 Map.png}
  	\centering
- 	\caption{Plasmid map of produced by simulating the T7 termination series cloning protocol for the insert containing variable region 1. Cloning simulations were ran and confirmed to be successful for all complete inserts sequences. Note that since the strong initiation sequence that was used is to be determined a \href{https://github.com/EthanHolleman/plasmid-VR-design/blob/main/notes/placeholder_strong_initiator.ipynb}{simulated but functionally equivalent sequence} was used in its place and is not shown in the map image.}
+ 	\caption{Plasmid map of produced by simulating the T7 termination series cloning protocol for the insert containing variable region 1. Cloning simulations were ran and confirmed to be successful for all complete inserts sequences. Note that since the strong initiation sequence that was used is to be determined a \href{https://github.com/EthanHolleman/plasmid-VR-design/blob/main/notes/placeholder_strong_initiator.ipynb}{simulated but functionally equivalent sequence} was used in its place.}
  	\label{clone:T7-term-insert-simulated}
  \end{figure}
  
@@ -269,7 +348,7 @@ After the successful sequencing of the T7 initiation series, pFC8 will be utiliz
 	\caption{Diagram of pFC9 insertion series cloning strategy.}
 \end{figure}
 
-First primers two pairs of primers are used to add amplify the anchor region, variable region, EcoRI recognition site and extension region from the T7 initiation construct library (\ref{sec:tac-init}). These primers will also contain 15 bp overhangs with homology to the 5' end of the tac promoter and 3' T1T2 terminator sequences. Next, the PCR products are added to pFC53T1T2 
+First primers two pairs of primers are used to add amplify the anchor region, variable region, EcoRI recognition site and extension region from the T7 initiation construct library (\ref{sec:tac-init}). These primers will also contain overhangs with homology to the 5' end of the tac promoter and 3' T1T2 terminator sequences. Next, the PCR products are added to pFC53T1T2 \ref{sec:tac-init}B and the mixture is digested 
 
 \begin{figure}[H]
 	\includegraphics[width=15cm]{images/plasmid_maps/tac_init_simulated_assembly.png}
@@ -293,7 +372,7 @@ First primers two pairs of primers are used to add amplify the anchor region, va
 	\begin{subfigure}[b]{\textwidth}
 		\centering
 		\includegraphics[width=0.75\textwidth]{images/primers/t7-init-reverse.png}
-		\caption{Reverse primer. Targets an arbitrary region 1000 nucleotides downstream of the end of the insert in order to include an "extension region" downstream of the variable region. Adds homology to the upstream end of the T1T2 terminator sequence of the pFC53T1T2 backbone and regenerates the digested HindIII site.}
+		\caption{Reverse primer. Targets an arbitrary region 500 nucleotides downstream of the end of the insert in order to include an "extension region" downstream of the variable region. Adds homology to the upstream end of the T1T2 terminator sequence of the pFC53T1T2 backbone and regenerates the digested HindIII site.}
 		\label{fig:three sin x}
 	\end{subfigure}
 	\vfill
@@ -370,18 +449,19 @@ A PCR program is not included here as an placeholder initiation region was used 
 
 \subsection{Validation of insert libraries}
 
-Use qPCR with primers for subset of variable regions with divergent characteristics should be present in equal quantities or just use primers for everything but then need to design unique primers or at least one primer that ends in the variable region so is specific to each insert. 
+Since all inserts of a given series will be assembled into their respective backbone in the same pot, it will be necessary to confirm that each insert-backbone assembly are present in relatively equal concentrations in the final library. Since the variable region of each insert-backbone assembly will be unique, qPCR utilizing primers that target a subset or all variable regions can be utilized to measure relative insert-backbone concentrations in the library. Potential primers for each insert are available at this link. 
 
 \subsection{Quantification of R-loop formation }
 
 Short description of SMRF-seq protocol using barcoded PCR primers for amplification 
 and anticipated data analysis. 
 
-\subsection{Reagents}
+\subsection{Reagents and kits}
 
 \begin{itemize}
 	\item \href{https://www.neb.com/products/e2611-gibson-assembly-master-mix#Product\%20Information_Properties\%20\&\%20Usage}{NEB Gibson assembly master mix}
 	\item \href{https://www.neb.com/products/m0491-q5-high-fidelity-dna-polymerase#Product\%20Information}{NEB High-Fidelity DNA Polymerase}
+	\item \href{https://www.qiagen.com/us/products/discovery-translational-research/dna-rna-purification/dna-purification/dna-clean-up/qiaquick-gel-extraction-kit/#orderinginformation/}{QIAquick gel extraction kit}. 
 	\item \href{https://www.neb.com/products/r0176-dpni?__cf_chl_jschl_tk__=d22d8cb49b9b2d4ff2532de61875fea36af4066f-1626291600-0-ARBMmni5PdhcCrqckk9zN05YGR50cB-otICbDTrUStRYlPQzdrbyJvjEOoI2QusMU-HOcKBcontIQfQRYoQqN9R2hNCL0XzFa2hP3-_c6Vf1sL2Sb2Bs_DXW38t8Oc1NxSg0caQ4FlAGqVNswAJaml9BhLC5dWj1sCuqKwDj72JKO8eI9d3mlCcNVIAVs8n1xFpuo1_oyafffkTnQ-ysv358pg1RrIbChfkwqXctDQennQm_CRjVjuitrXFFNjgAqBDJBKFRMZKkoOYlTDEDBsuaQaQtMxNwL5u7yIJ5mNCrkkuiikIGg7Was3tNj1d7D-7bnJrfXr8jIfG3qW6kvIkrZBJey0JQAVMQGVc4Ps0t0_iS3P4ahcZRytZezR6Fq9lrMqGJkB_Xmxyr0cVoXrbIv136yLISC-RPNR4MDWXe#Product\%20Information}{DpnI}, optionally use for digesting plasmid DNA after amplication of inserts
 \end{itemize}
 
@@ -391,6 +471,10 @@ and anticipated data analysis.
 	\item \href{https://www.neb.com/applications/cloning-and-synthetic-biology/dna-assembly-and-cloning/gibson-assembly}{NEB Gibson assembly protocols}
 	\item \href{https://openwetware.org/wiki/Janet_B._Matsen:Guide_to_Gibson_Assembly}{Janet B. Matsen: Open Wet Ware Gibson assembly}
 \end{itemize}
+
+\section{Sequence availability}
+
+
 
 
 \section{Code availability}
@@ -444,183 +528,6 @@ Thanks to conversations with Craig and Robert about this also decided using para
 
 Jupyter notebook that includes all code used to generate homology arms and insert
 restriction sites is available  \href{https://github.com/EthanHolleman/plasmid-VR-design/blob/main/notes/homology_arms.ipynb}{at this link}. The genbank formatted files of both homology arms can be found in the same repository in the \href{https://github.com/EthanHolleman/plasmid-VR-design/tree/main/resources/files/genbank}{resources directory}.
-
-\subsection{Variable regions in fasta format}
-\label{sec:fasta-inserts}
-
-Headers for each complete insert begin with the SEGUID string (A SEquence Globally Unique IDentifier) \cite{Babnigg2006} for the sequence followed by a space, the word insert, an underscore and finally the insert name.
-
-
-\begin{verbatim}
->uI2oMODk-22mA4uMFkAWb8MNQEQ insert_init-1
-TAGGGCGAATTGGAGCTCCACATCGGTACCCACGTTTGGCCACCATTAACTATATATGTA
-TCCTTGCACACCCTTATCTAAATTGTCTTAGATTTTCAATCCTATAGTGTAGGTGTGGCA
-GATGCAACTTTACAGGCGCGAGTTGGTACTACACGCAGACTAGTAATAGTGCAGTTTAGA
-GAAGGGAAGAGGTAAATCGTCTAGTAAAACTAGGACTCTGTATAAGTTACCAACGGTGTT
-ACCGCGAATTCGTCGCAGTGACCGAGGCGAGGAGG
->xxGE8Gg_FuXoRcMCzcbS8H6P8wk insert_init-2
-TAGGGCGAATTGGAGCTCCACATCGGTACCCACGTTTGGCCACCACCTTCGCCGAATGGG
-AAGCGGGGCAGGGGCCGGAGTCTAACCGAAGAGGGACAAGGGTCGACGCCGCTGGACGCG
-GGGTAGGTTGGTTGTGGTCAGAGGGGCGGCGTGCGGGGGGCGGTGGCAACGTGGTATCGT
-CGTCATGGACGTGACGCGCTGGGGGGCGATACACGGGGGGGGGGTGGCTTCAGAGTGCGG
-TGGCCGAATTCGTCGCAGTGACCGAGGCGAGGAGG
->Qgaasm0lhlPX5b3t-z1qbJu3S9o insert_init-3
-TAGGGCGAATTGGAGCTCCACATCGGTACCCACGTTTGGCCACCAATTATGGGGCTGGCT
-ACGGAGGTGTAATTTCTAGGGAGGGGGAGCATTAGACGGTGGCAGGTTAGTGAGGGGGGG
-GGACAGTCGAGCAGAGGCCGCGTATATGGGCGGGATGGTGGATGGACAAGGGAAGGTGCC
-ACTCGAGGGTGGGTGTAAGGGGTGGTAGTTAGGAGGACTGGATTTGGCTGCGGTAGGGTG
-GCACGGAATTCGTCGCAGTGACCGAGGCGAGGAGG
->HZfblNGgM64FV1hPYV8cTLZ5u0M insert_init-4
-TAGGGCGAATTGGAGCTCCACATCGGTACCCACGTTTGGCCACCATGTGGTGCTGCGGCT
-TGGGGAGGCGTCTTGTCGAGTGTCGATCGACAGGCGGTGGCCTGGGGGATCCGACTTCCG
-GCTCCTTGGGGCCGCGCGAAGGGGGACATTCGGAGACACAGGGCCCGCTACCCCGCAGCG
-AGCGGGGCGAAGCTGACCACGCAGCTCCCCCGTGCGACACGATGGCCTCCAGCGAGATCC
-GGACCGAATTCGTCGCAGTGACCGAGGCGAGGAGG
->M3VLqJl5oQIRO7wZeEKKr_hUr40 insert_init-5
-TAGGGCGAATTGGAGCTCCACATCGGTACCCACGTTTGGCCACCAACGCGGGATTGCCGG
-ACATCGGAGAGCCCAACGAGCGGAATTTCCGTGACGAGGTCAGAGCTGATGGAACTCCCT
-CAGTTACTCAGGTATGAACGTACTCAAAGGCCCTGTGTCGTGGGTGCACCGCTCCCTGGC
-AGGGCTATTCCGCCGATACGCAGTCATCAGGGGACCGCGTGTTGCTACAACTGCCCCGTC
-TCGTCGAATTCGTCGCAGTGACCGAGGCGAGGAGG
->Cyy1TuR8girckLFRFzzJQtffY78 insert_init-6
-TAGGGCGAATTGGAGCTCCACATCGGTACCCACGTTTGGCCACCACACATTAGAGTACGT
-AGAGGCACTGCATCCTGGGCGGTTTGAATTAGGTTAACTCGAGGGTAACTTGTACTTAAC
-ATAGAGGAGAGGCATTCCACGCTTGGTCTCTAAAACTGTTTAGTATTGGGTAAACCCGAA
-ATCTAATTTCAACGAGCTCTATAGGAAATAATTAATGGAAGATAGTGGTGTTATCGTTAC
-ATTTGGAATTCGTCGCAGTGACCGAGGCGAGGAGG
->nnPuzS7AblFb1Bw2eAE_7h8SePY insert_init-7
-TAGGGCGAATTGGAGCTCCACATCGGTACCCACGTTTGGCCACCAATTATGGGGCTGGCT
-ACGGAGCTGTAATTTCTAGCCAGGGGGAGCATTAGACGGTGGCAGGTTACTGAGGGGGCG
-CGACAGTCCAGCAGAGGCCGCGTATATGGGCGGGATGGTGGATGGACAAGGGAACGTGCC
-ACTCGAGGCTGGGTGTAAGCGGTGGTACTTAGGAGGACTGGATTTGGCTGCGGTAGGCTG
-GCACGGAATTCGTCGCAGTGACCGAGGCGAGGAGG
->48li-aMEdMWrqlvMwBVGdXkIoic insert_init-8
-TAGGGCGAATTGGAGCTCCACATCGGTACCCACGTTTGGCCACCAAGCTAGAGTGTAGAT
-GATCTAAGAATAGTATGGAGGGATTTAAGTGAGAGTTCGTAGAGGGAACTGCAGTGGCAG
-GTGGGATGGAAATGTGAGCGTAGGTGTCTGCTTGGTAATAGGCTGGATCTGCAGGGTCGG
-TGTCGGTGGGACTATGGGAGGGGTAATAGGCGCAAGCTGGGGTGATGCATAAGCGTTAAT
-AGTTGGAATTCGTCGCAGTGACCGAGGCGAGGAGG
->k1DC5eUm6s6LHQ6IBWL3fh21sOU insert_init-9
-TAGGGCGAATTGGAGCTCCACATCGGTACCCACGTTTGGCCACCAACGCGGGATTGCCGG
-ACATCGGAGAGCCCAACGAGCGGAATTTCCGTGACGAGGTCAGAGCTGATGGAACTCCCT
-CAGTTACTCAGGTATGAACGTACTCAAAGGCCCTGTGTCGTGGGTGCACCGGTCCCTGGC
-AGGGCTATTCCGCCGATAGGCAGTCATGAGGGGACCGCGTGTTGCTACAACTGCCGGGTC
-TCGTGGAATTCGTCGCAGTGACCGAGGCGAGGAGG
->PtfE-xW0Cu1CcZAF_GmNkRvARG8 insert_init-10
-TAGGGCGAATTGGAGCTCCACATCGGTACCCACGTTTGGCCACCAACCTAGAGTCTACAT
-CATCTAACAATACTATGGAGCGATTTAACTGAGAGTTCGTAGACCGAACTGCACTGGCAC
-GTGGGATGCAAATGTGACCGTAGGTGTCTGCTTGCTAATAGGCTGGATCTGCAGGGTCGC
-TGTCGCTCCCACTATCGGACGGGTAATAGGCGCAAGCTCGCCTCATCCATAACCCTTAAT
-AGTTCGAATTCGTCGCAGTGACCGAGGCGAGGAGG
->ZfSsyr5JKJMmzfxVoihBQwhX_NE insert_init-11
-TAGGGCGAATTGGAGCTCCACATCGGTACCCACGTTTGGCCACCATGTGGTGCTGCGGCT
-TGGGGAGGGGTCTTGTGGAGTGTCGATCGAGAGGCGGTGGCCTGGGGGATCCGACTTCCG
-GCTCCTTGGGGCCGCGCGAAGGGGGACATTCGGAGACACAGGGCCCGCTACCCCGGAGCG
-AGCGGGGCGAAGGTGACCACGCAGCTCCGCCGTGCGACACGATGGCCTGCAGCGAGATCC
-GGACCGAATTCGTCGCAGTGACCGAGGCGAGGAGG
->AB0ve2-vLjsIguhmvORXjxcgBfI insert_init-12
-TAGGGCGAATTGGAGCTCCACATCGGTACCCACGTTTGGCCACCAATTATGGGGCTGGCT
-ACGGATCTTTAATTTCTAGGCATGGGTATCATTAGACGTAGTCAGGTAACTGAGGGTGGG
-CGACAGACGAGCAGAGGCCTCGAATAAGGGCTGGATGTAGGATGGACAAGTGAAGTTTCC
-ACTCGAGGGTGGGAGTAAGGGGTGTTACTAATGATTACTGGAAATGGCTGCTGTATGCTG
-GCACGGAATTCGTCGCAGTGACCGAGGCGAGGAGG
->0ajKeeoLFH_-_WR3FlsYUghJ_wo insert_init-13
-TAGGGCGAATTGGAGCTCCACATCGGTACCCACGTTTGGCCACCAACGCGGGATTGCCGG
-ACATCGGAGAGCGCAACGAGCGGAATTTCCGTGACGAGGTCAGAGCTGATGGAAGTCCGT
-CAGTTAGTCAGGTATGAACGTACTCAAAGGCCCTGTGTGGTGGGTGCACCGGTCCCTGGC
-AGGGCTATTCCGCCGATAGGCAGTCATGAGGGGACCGCGTGTTGCTACAAGTGCCGGGTC
-TCGTGGAATTCGTCGCAGTGACCGAGGCGAGGAGG
->5vd9OwN61JjxUtv5yJRgi5W4rkQ insert_init-14
-TAGGGCGAATTGGAGCTCCACATCGGTACCCACGTTTGGCCACCACTCATTACAGTACGT
-TCACGCACTGCAGCCTCGGCGGTTGCAATTTGGTTAACTCGAGGGGAACTGCTACTTAAC
-ATAGTGGAGACGCTTGCCACGCTGGCTCGCGATATCGGTGTAGTAGTGGCGAAACCCGAT
-AGCTAATGTCAACGACCGCGTTACGTAATAAGGAATCGAAGATAGGGGTCTGATCGTTAC
-ATTTGGAATTCGTCGCAGTGACCGAGGCGAGGAGG
->vOi3nAJBZKQbAAixEIhLho5HRG0 insert_init-15
-TAGGGCGAATTGGAGCTCCACATCGGTACCCACGTTTGGCCACCATTAACTATATATGTA
-TCCTTGCACACCCTTATCTAAATTGTCTTAGATTTTCAATCCTATAGTGTAGGTGTGGCA
-GATGCAACTTTACAGGCGCGAGTTGCTACTACACCCAGACTAGTAATAGTGCAGTTTAGA
-CAAGGGAAGAGGTAAATCGTCTACTAAAACTAGGACTCTGTATAAGTTACCAACGGTGTT
-ACCGCGAATTCGTCGCAGTGACCGAGGCGAGGAGG
->F-umROlWXPNmCnU9huosc24irXk insert_init-16
-TAGGGCGAATTGGAGCTCCACATCGGTACCCACGTTTGGCCACCAAAATGGAGAGGTTAG
-TTGGAATTTGGCGTAGGTGAAGGCAAAAATAGAAATCGGTATAATGTTTCAAGGATGTTA
-ACAAGGTGTGAAAGAGGTCGGTGACAGAAGTCTTTAAATAGTTATGTCTCAAATTACTCA
-GTAGTTTGAGGAGGTATTGTAGGACGTTATTCCGATAGGGTTTATGTGCGTGATGGGGTG
-GTGAGGAATTCGTCGCAGTGACCGAGGCGAGGAGG
->nfcEqNf7lCB4XRpZ2RAu70-sjy0 insert_init-17
-TAGGGCGAATTGGAGCTCCACATCGGTACCCACGTTTGGCCACCACGTTCGCGGAATGGG
-AAGCGGGGGAGGGGGGGGAGTCTAAGCGAAGAGGGACAAGGGTCGACGCCGGTGGACGCG
-GGGTAGGTTGGTTGTGGTGAGAGGGGCGGGGTGCGGGGGGGGGTGGCAAGGTGGTATCGT
-CGTGATGGAGGTGACGCGCTGGGGGGCGATACACGGGGGGGGGGTGGCTTCAGAGTGGGG
-TGGCCGAATTCGTCGCAGTGACCGAGGCGAGGAGG
->xMIFrhuHyx0kfOAkHZv3Gt7avOM insert_init-18
-TAGGGCGAATTGGAGCTCCACATCGGTACCCACGTTTGGCCACCAACTCGGGCGCGGAAG
-GCAGCCACCGGCCCGAGGCCGTGTCCCCCGGGGCTTGGGCGTACAACTGGACTTCCCGGG
-CGGAGGTCCTTCTCGACCACATAGACCGCGGCGGGAGGTGGGACGCCTTCCGTTTTAGCG
-TCGTGCGCCGTAGGGCGAGGAGCTCCCGTTCAGACATCCAGGCTCGCAGCACATGCCCCC
-GACCGGAATTCGTCGCAGTGACCGAGGCGAGGAGG
->_bPA1dDaKHyM7wwFymFjj8iaOHA insert_init-19
-TAGGGCGAATTGGAGCTCCACATCGGTACCCACGTTTGGCCACCACACATTAGAGTACGT
-AGAGGCAGTGCATCCTGGGCGGTTTGAATTAGGTTAACTCGAGGGTAAGTTGTACTTAAC
-ATAGAGGAGAGGCATTCGAGGCTTGGTCTGTAAAACTGTTTAGTATTGGGTAAAGCGGAA
-ATCTAATTTCAACGAGCTCTATAGGAAATAATTAATGGAAGATAGTGGTGTTATCGTTAG
-ATTTGGAATTCGTCGCAGTGACCGAGGCGAGGAGG
->z-VWjJs4HOVPRiFTKkB2CMh0AeQ insert_init-20
-TAGGGCGAATTGGAGCTCCACATCGGTACCCACGTTTGGCCACCAATTATGGGGCTGGCT
-ACGGATCTTTAATTTCTAGCCATCGGTATCATTAGACGTAGTCAGCTAACTGAGGGTGCG
-CGACAGACCAGCAGAGGCCTCGAATAAGGGCTGCATGTAGGATGGACAAGTGAACTTTCC
-ACTCGAGGCTGCGAGTAAGCGGTGTTACTAATGATTACTGGAAATGGCTGCTGTATGCTG
-GCACGGAATTCGTCGCAGTGACCGAGGCGAGGAGG
->a1rQbSGsl2x7SCwWDrGsQcxG2Jo insert_init-51
-TAGGGCGAATTGGAGCTCCACATCGGTACCCACGTTTGGCCACCACACATTAGAGTACGT
-AGAGGCACTGCATCCTGGGCGGTTTGAATTAGGTTAACTCGAGGGTAACTTGTACTTAAC
-ATAGAGGAGAGGCATTCCAGGCTTGGTCTGTAAAACTGTTTAGTATTGGGTAAAGCGGAA
-ATCTAATTTCAACGAGCTCTATAGGAAATAATTAATGGAAGATAGTGGTGTTATCGTTAC
-ATTTGGAATTCGTCGCAGTGACCGAGGCGAGGAGG
->i5xBsEuOX_D3UAsMD5_D5RBKrRk insert_init-52
-TAGGGCGAATTGGAGCTCCACATCGGTACCCACGTTTGGCCACCAAAAGGGAGAGGTTTG
-GGGGAATTTGGCCTACCTGAAGGCTATAATAGAAATCGGTAGTATGTTGCAAGGTTCTTT
-ACAACGTGTGAAAGTGGTCCGGGACACATCTCGTTAAATTCTGATGTCGCAAAGGACGCA
-GTAGGTGCACGAGCTATTGTAGGACCTGATGCCGTTACGGTTGATCTCCGTGAGCGGCGG
-GGGACGAATTCGTCGCAGTGACCGAGGCGAGGAGG
->Bl5NH1DmQHE_PhlW8RrNLnBKT24 insert_init-53
-TAGGGCGAATTGGAGCTCCACATCGGTACCCACGTTTGGCCACCAACGCGGGATTGCCGG
-ACATGGGAGAGCGCAACGAGCGGAATTTCCGTGACGAGGTCAGAGCTGATGGAAGTCCGT
-CAGTTAGTGAGGTATGAAGGTACTCAAAGGGCCTGTGTGGTGGGTGCACCGGTCCGTGGC
-AGGGCTATTCCGCCGATAGGCAGTCATGAGGGGAGCGCGTGTTGCTACAAGTGCCGGGTC
-TCGTGGAATTCGTCGCAGTGACCGAGGCGAGGAGG
->BceLUjEU9O8GsQVx9xW1Kxn6SUI insert_init-54
-TAGGGCGAATTGGAGCTCCACATCGGTACCCACGTTTGGCCACCAGCGCTGAACGGGGGA
-GGGTCGGGGCGGGCGGCGTGAGAGCTCAGGCTCCGGGGTGTACGGGAGGTGCAGGGGGGC
-GCATCCATGGGTAGGCGGGAGGCAAAGTATCGAAGGGCCCACAGATGGGTCGTTGTCCGT
-GGAGTTCGCTGACCTCTGCACCCGCGGCTGAGCCGGGGGTCCCCGCACGGAGTTGGATGG
-GTCCAGAATTCGTCGCAGTGACCGAGGCGAGGAGG
->kSnZfaYyMmtaXNeKUrJYDrVc6is insert_init-55
-TAGGGCGAATTGGAGCTCCACATCGGTACCCACGTTTGGCCACCATTAACTATATATGTA
-TGGTTGCAGACCGTTATGTAAATTGTCTTAGATTTTCAATCGTATAGTGTAGGTGTGGCA
-GATGGAACTTTAGAGGCGCGAGTTGGTACTACAGGGAGACTAGTAATAGTGGAGTTTAGA
-GAAGGGAAGAGGTAAATGGTCTAGTAAAACTAGGACTGTGTATAAGTTACCAAGGGTGTT
-ACGGGGAATTCGTCGCAGTGACCGAGGCGAGGAGG
->izktT5yxYm4tK4Ise9OtCjMWvoA insert_init-56
-TAGGGCGAATTGGAGCTCCACATCGGTACCCACGTTTGGCCACCAAGCTAGAGTGTAGAT
-GATCTAAGAATAGTATGGAGGGATTTAACTGAGAGTTCGTAGAGGGAACTGCAGTGGCAC
-GTGGGATGGAAATGTGAGCGTAGGTGTCTGCTTGGTAATAGGCTGGATCTGCAGGGTCGC
-TGTCGGTGGGACTATCGGAGGGGTAATAGGCGCAAGCTGGGGTGATGCATAAGCGTTAAT
-AGTTCGAATTCGTCGCAGTGACCGAGGCGAGGAGG
->D_X_8FNcqgcekMkN6HwwXxxeSWo insert_init-57
-TAGGGCGAATTGGAGCTCCACATCGGTACCCACGTTTGGCCACCAAGTGGATCATGGTGT
-TGGGTATTGTTCTTGAGGAGTGAGGATCGAGAGGGGGTGGGCTGGGGGAAGCGACAACCG
-GCTGGAAGTGTCGGGGGGAAGGGGGAGATTCTGAGAGAGAGTGGGCTCTACCGCGGAGCG
-AGGGTGGCTAAGGTGACCACTGATGTGCGCCGTGGTACACTATGTCGTGGATGGAGATCC
-GGACGGAATTCGTCGCAGTGACCGAGGCGAGGAGG
->LrNW4QmsWQQFWxdEJX_k9mBQBCo insert_init-58
-TAGGGCGAATTGGAGCTCCACATCGGTACCCACGTTTGGCCACCAATGTGGGGGCGGGCT
-TCGGAGCGGTTAGGGCGAGCCAGGGGGAGCAGGTGACGGTGGCAGGGTTCGGAGGGGGCG
-CGTCAGTCCAGCAGTGGCCGCGTTGATGGGCGGGATGGTGGATGGACATGGGAAGGGGCC
-TCTCGAGGCGGGGTGTAAGCGGGGGGACGTAGGAGGACTGGATTGGGCGGCGGTAGGCTG
-GCACGGAATTCGTCGCAGTGACCGAGGCGAGGAGG
-\end{verbatim}
 
 
 \pagebreak
