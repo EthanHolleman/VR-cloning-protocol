@@ -143,7 +143,7 @@ Each insert will contain 1 variable region designed to test the effects of diffe
 	VR-31 &      0.6 &         0.7 &      0.0 &             NA \\
 	\bottomrule
 \end{tabular}
-\caption{Properties of all variable regions. NA in the G cluster length column indicates that the guanines are un-clustered. Clustered guanines were distributed randomly throughput the sequence with a minimum distance of five nucleotides between adjacent clusters.}
+\caption{Properties of all variable regions. NA in the G cluster length column indicates that the guanines are un-clustered. G clusters were distributed so that an equal number of nucleotides was present between each cluster.}
 \label{table:1}
 \end{table}
 
@@ -191,7 +191,7 @@ Each variable region is designed so that it may be used to test sequence effects
 	
 \end{tabular}
 \caption{Properties of the reverse complements of all variable regions described in table \ref{table:1}}.
-\ref{table:2}
+\label{table:2}
 \end{table}
 
 While the global sequence properties for each variable region are well defined, properties such as GC-skew, content or nucleotide clustering do not determine which particular nucleotide should occur at a specific position in a given sequence. In this way, the parameters that define and separate each variable region can be thought of as bounding the set of all possible nucleotide sequences of length 200. In order to select one specific sequence from this set we can sample a large number of sequences and access each one with metrics relevant to the realities of cloning protocols and R-loop formation. Each metric used to access candidate variable regions are described below. All metrics received equal weight in final candidate selection. 
@@ -500,12 +500,12 @@ All sequence data is available as a part of the insert region calculation pipeli
 	\end{tabular}
 \end{table}
 
-\subsection{Variable region snakemake pipeline diagram}
+\subsection{Snakemake workflow diagram}
 
 \begin{figure}[H]
 	\includegraphics[width=15cm]{images/misc/dag.png}
 	\centering
-	\caption{Place holder dag image.}
+	\caption{Visualization of insert calculation workflow.}
 \end{figure}
 
 \subsection{Initial R-looper expectation calculations}
@@ -516,7 +516,6 @@ All sequence data is available as a part of the insert region calculation pipeli
 	\centering
 	\caption{Initial rlooper expectation plots based on completely random sequences of increasing length.}
 \end{figure}
-
 
 
 \pagebreak
