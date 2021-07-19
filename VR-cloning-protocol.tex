@@ -35,7 +35,7 @@
 %\titleformat*{\section}{\small\bfseries}
 \bibliographystyle{unsrt}
 \author{Ethan Holleman}
-\title{Variable region design and cloning}
+\title{Variable region insert design and cloning strategies}
 
 \begin{document}
 
@@ -63,13 +63,13 @@ R-loops have been shown to cover approximately 5\% of the human genome, and gene
 
 \section{Insert design}
 
-The overall goal of this series of experiments is to transcribe carefully controlled DNA sequences, referred to as inserts, in order to systematically observe the effects of these controlled sequences on R-loop initiation and termination \emph{in vitro}. Inserts are composed of two types of DNA components; the variable and infrastructure regions. The variable region is the sequence of interest with respect to R-loop formation while infrastructure sequences are additional nucleotide blocks that allow for the insertion of variable regions into specific plasmid backbones (see section \ref{}) in a modular fashion. The distinct regions that compose each insert are described below. 
+The overall goal of this series of experiments is to transcribe carefully controlled DNA sequences, referred to as inserts, in order to systematically observe the effects of these controlled sequences on R-loop initiation and termination \emph{in vitro}. Inserts are composed of two types of DNA components; the variable and infrastructure regions. The variable region is the sequence of interest with respect to R-loop formation while infrastructure sequences are additional nucleotide blocks that allow for the insertion of variable regions into specific plasmid backbones in a modular fashion. The distinct regions that compose each insert are described below. 
 
 \begin{figure}[H]
 	\includegraphics[width=16cm]{images/variable_region/construct_diagrams-Detailed-Insert.png}
 	\centering
 	\caption{Diagram of a complete insert. Colored boxes represent features insert sequences are derived from while colored sequences represent the actual nucleotide sequence.}
-	\label{fig:1}
+	\label{figure:1}
 \end{figure}
 
 
@@ -81,7 +81,7 @@ The first 30 bp of each insert will be composed of the 5' homology arm and a Kpn
 	\includegraphics[width=12cm]{images/variable_region/5_homology_arm.png}
 	\centering
 	\caption{Location in pFC9 from which the 5' homology arm and KpnI site are modeled after. The entire 30 bp sequence is shown in purple with the 5' homology arm highlighted as a feature in blue and the KnpI site in orange.}
-	\label{fig:1}
+	\label{fig:homology_5}
 \end{figure}
 
 This strategy will mean recognition sites for Eco53KI, SacI and Acc65I will be included in the 5' homology arms. However, none of these enzymes will be utilized in any cloning protocols and so only the KpnI site is noted in diagrams.
@@ -99,7 +99,6 @@ Since this region is intended to be used as part of a PCR primer it was selected
 	\item Does not contain single stretches of single nucleotides greater than three nucleotides in length.
 \end{itemize}
 
-The final anchor region sequence is available for download \href{}{at this link}.
 
 \subsubsection{Variable regions}
 
@@ -152,7 +151,6 @@ Each insert will contain 1 variable region designed to test the effects of diffe
 Each variable region is designed so that it may be used to test sequence effects on R-loop initiation when oriented in the same direction as a proximal promoter and R-loop termination when oppositely oriented to an upstream promoter. The properties of the reverse complements, representing transcription of variable regions in the reverse orientation, are listed in table \ref{table:2}. 
 
 \begin{table}
-	\label{table:2}
 	\centering
 \begin{tabular}{lrrrl}
 	\toprule
@@ -190,8 +188,10 @@ Each variable region is designed so that it may be used to test sequence effects
 	VR-30 &     -0.6 &         0.4 &      0.0 &             NA \\
 	VR-31 &     -0.6 &         0.3 &      0.0 &             NA \\
 	\bottomrule
+	
 \end{tabular}
 \caption{Properties of the reverse complements of all variable regions described in table \ref{table:1}}.
+\ref{table:2}
 \end{table}
 
 While the global sequence properties for each variable region are well defined, properties such as GC-skew, content or nucleotide clustering do not determine which particular nucleotide should occur at a specific position in a given sequence. In this way, the parameters that define and separate each variable region can be thought of as bounding the set of all possible nucleotide sequences of length 200. In order to select one specific sequence from this set we can sample a large number of sequences and access each one with metrics relevant to the realities of cloning protocols and R-loop formation. Each metric used to access candidate variable regions are described below. All metrics received equal weight in final candidate selection. 
@@ -199,7 +199,7 @@ While the global sequence properties for each variable region are well defined, 
 \begin{figure}[H]
 	\includegraphics[width=18cm]{images/plots/VR-1.all_ranked.png}
 	\centering
-	\caption{Visualization of sequence selection for an example variable region. Here, 100 candidate variable region sequences where generated and then ranked based on four metrics; mean R-loop probability (MRLP), mean local average energy (MLAE), proportion of nucleotides predicted to participate in RNA hairpins (PH) and proportion of nucleotides predicted to be unpaired (PUP). Sequences were by each individual metric (A) and an overall rank was calculated by selecting the candidate with the lowest average rank (B). The candidate with the best (lowest) overall rank was then selected as the final sequence.}
+	\caption{Visualization of sequence selection for an example variable region. Here, 100 candidate variable region sequences were generated and then ranked based on four metrics; mean R-loop probability (MRLP), mean local average energy (MLAE), proportion of nucleotides predicted to participate in RNA hairpins (PH) and proportion of nucleotides predicted to be unpaired (PUP). Sequences were by each individual metric (A) and an overall rank was calculated by selecting the candidate with the lowest average rank (B). The candidate with the best (lowest) overall rank was then selected as the final sequence.}
 	\label{ranking}
 \end{figure}
 
@@ -245,7 +245,7 @@ Significant amounts of RNA secondary structure, especially large hairpins, are e
 	\includegraphics[width=14cm]{images/plots/rna_secondary_structure_temp.png}
 	\centering
 	\caption{Heatmaps showing PH (left) and PUP (right) for 100 candidate variable regions of length 200 at various levels of both GC skew and content.}
-	\label{fig:3_prime_arm}
+	\label{fig:rna_secondary_structure}
 \end{figure}
 
 
@@ -299,7 +299,7 @@ Complete insert sequences will be cloned into three different plasmid backbones:
 \begin{figure}[H]
 	\includegraphics[width=15cm]{images/cloning_diagrams/construct_diagrams-T7-Initiation-series.png}
 	\centering
-	\caption{Diagram of pFC9 insertion series cloning strategy.}
+	\caption{Diagram of pFC9 T7 insertion series cloning strategy.}
 	\label{clone:T7-insert}
 \end{figure}
 
@@ -324,7 +324,7 @@ After the successful sequencing of the T7 initiation series, pFC8 will be utiliz
 \begin{figure}[H]
 	\includegraphics[width=15cm]{images/cloning_diagrams/construct_diagrams-T7-termination-series.png}
 	\centering
-	\caption{Diagram of pFC9 insertion series cloning strategy.}
+	\caption{Diagram of pFC8 T7 termination series cloning strategy.}
 	\label{clone:T7-term}
 	
 \end{figure}
@@ -345,10 +345,10 @@ After the successful sequencing of the T7 initiation series, pFC8 will be utiliz
 \begin{figure}[H]
 	\includegraphics[width=15cm]{images/cloning_diagrams/construct_diagrams-Tac-initiation-series.png}
 	\centering
-	\caption{Diagram of pFC9 insertion series cloning strategy.}
+	\caption{Diagram of pFCT$_1$T$_2$ tac initiation series cloning strategy.}
 \end{figure}
 
-First primers two pairs of primers are used to add amplify the anchor region, variable region, EcoRI recognition site and extension region from the T7 initiation construct library (\ref{sec:tac-init}). These primers will also contain overhangs with homology to the 5' end of the tac promoter and 3' T1T2 terminator sequences. Next, the PCR products are added to pFC53T1T2 \ref{sec:tac-init}B and the mixture is digested 
+First primers two pairs of primers are used to add amplify the anchor region, variable region, EcoRI recognition site and extension region from the T7 initiation construct library (\ref{sec:tac-init}). These primers will also contain overhangs with homology to the 5' end of the tac promoter and 3' T1T2 terminator sequences (\ref{T7:tac-init}A). Next, pFCT$_1$T$_2$ is separately digested with HindIII and KpnI and the large fragment is purified via agarose gel. The PCR products products are added to the large fragment and digested with T5 endonuclease (\ref{T7:tac-init}B, C). The final construct is assembled via Gibson assembly and the HindIII and KpnI sites are regenerated as a result of the insertion. 
 
 \begin{figure}[H]
 	\includegraphics[width=15cm]{images/plasmid_maps/tac_init_simulated_assembly.png}
@@ -402,11 +402,13 @@ First primers two pairs of primers are used to add amplify the anchor region, va
 \subsection{Tac termination series constructs}
 \label{sec:tac-termination}
 
+The assembly protocol for the tac termination series is identical to the initiation series, the difference being the insert is sourced from T7 termination series constructs and accordingly a different set of primers is utilized to amplify the insert region and add homology for Gibson assembly into 
+pFCT$_1$T$_2$.
 
 \begin{figure}[H]
 	\includegraphics[width=15cm]{images/cloning_diagrams/construct_diagrams-Tac-termination-series.png}
 	\centering
-	\caption{Diagram of pFC9 insertion series cloning strategy.}
+	\caption{Diagram of pFCT$_1$T$_2$ termination series cloning strategy.}
 \end{figure}
 
 \begin{figure}[H]
@@ -443,8 +445,7 @@ First primers two pairs of primers are used to add amplify the anchor region, va
 \end{figure}
 
 
-A PCR program is not included here as an placeholder initiation region was used to demonstrate how tac termination series primers would be designed. Therefore until an actual strong initiator region is determined and verified these primers should \emph{not} be ordered. Code to generate both initiation and termination series primers and PCR programs is available as a Jupyter notebook \href{https://github.com/EthanHolleman/plasmid-VR-design/blob/main/notes/tac_series_primers.ipynb}{at this link}. 
-
+A PCR program is not included here as an placeholder initiation region was used to demonstrate how tac termination series primers would be designed. Therefore until an actual strong initiator region is determined and verified these primers should \emph{not} be ordered. Code to generate both initiation and termination series primers and PCR programs is available as a Jupyter notebook \href{https://github.com/EthanHolleman/plasmid-VR-design/blob/main/notes/tac_series_primers.ipynb}{at this link}. This was later converted into a functionally equivalent notebook that is run as part of the insert calculation pipeline. 
 
 
 \subsection{Validation of insert libraries}
@@ -472,14 +473,14 @@ and anticipated data analysis.
 	\item \href{https://openwetware.org/wiki/Janet_B._Matsen:Guide_to_Gibson_Assembly}{Janet B. Matsen: Open Wet Ware Gibson assembly}
 \end{itemize}
 
-\section{Sequence availability}
-
-
-
 
 \section{Code availability}
 
-All code used in insert creation and analysis is available here. The source code for this document is available at the GitHub repository \href{https://github.com/EthanHolleman/plasmid-VR-design}{at this link}.
+All code used in insert creation and analysis \href{https://github.com/EthanHolleman/plasmid-VR-design}{is available here}. The source code for this document is available \href{https://github.com/EthanHolleman/VR-cloning-protocol}{at this link}.
+
+\section{Sequence availability}
+
+All sequence data is available as a part of the insert region calculation pipeline and can be found \href{https://github.com/EthanHolleman/plasmid-VR-design/releases/tag/v1.0}{at this link}. 
 
 \section{Supplementary materials}
 
@@ -509,25 +510,13 @@ All code used in insert creation and analysis is available here. The source code
 
 \subsection{Initial R-looper expectation calculations}
 
-Originally, expectations for R-looper results were derived by measuring average per base pair probability and of R-loop formation average per base pair local average energy calculated by rlooper for a large number of random sequences of a given length. 
 
 \begin{figure}[H]
 	\includegraphics[width=15cm]{images/plots/rand_seq_LAE_dist.png}
 	\centering
-	\caption{Initial rlooper expectation plots based on completely random sequences.}
+	\caption{Initial rlooper expectation plots based on completely random sequences of increasing length.}
 \end{figure}
 
-The top figure shows the distribution of average R-loop energy for a given base pair, averaged over all R-loops that contain that base pair for random sequences of a given length.
-
-Bottom plot
-
-Thanks to conversations with Craig and Robert about this also decided using parameterized sequences would be more informative resulting in fig 1.
-
-
-\subsection{Homology arm calculations}
-
-Jupyter notebook that includes all code used to generate homology arms and insert
-restriction sites is available  \href{https://github.com/EthanHolleman/plasmid-VR-design/blob/main/notes/homology_arms.ipynb}{at this link}. The genbank formatted files of both homology arms can be found in the same repository in the \href{https://github.com/EthanHolleman/plasmid-VR-design/tree/main/resources/files/genbank}{resources directory}.
 
 
 \pagebreak
