@@ -75,7 +75,7 @@ The overall goal of this series of experiments is to transcribe carefully contro
 
 \subsection{5' homology arm and KpnI recognition site}
 
-The first 30 bp of each insert will be composed of the 5' homology arm and a KpnI recognition site. These sequences are included to facilitate Gibson and restriction enzyme cloning into pFC9 and pFC8, respectively. These 30 bp are taken directly from nucleotides 27 - 56 of pFC9.
+The first 30 bp of each insert will be composed of the 5' homology arm followed by SacI and KpnI recognition sites. These sequences are included to facilitate Gibson and restriction enzyme cloning into pFC9 and pFC8, respectively.
 
 \begin{figure}[h]
 	\includegraphics[width=12cm]{images/variable_region/5_homology_arm.png}
@@ -147,7 +147,6 @@ Each insert will contain one variable region designed to test the effects of dif
 \label{table:1}
 \end{table}
 
-
 Each variable region is designed to test sequence effects on R-loop initiation when oriented in the same direction as a proximal promoter and R-loop termination when oppositely oriented to an upstream promoter. The properties of the reverse complements, representing transcription of variable regions in the reverse orientation, are listed in table \ref{table:2}. 
 
 \begin{table}
@@ -194,7 +193,24 @@ Each variable region is designed to test sequence effects on R-loop initiation w
 \label{table:2}
 \end{table}
 
-While the global sequence properties for each variable region are well defined, properties such as GC-skew, content or nucleotide clustering do not determine which particular nucleotide should occur at a specific position in a given sequence. In this way, the parameters that define and separate each variable region can be thought of as bounding the set of all possible nucleotide sequences of length 200. To select one specific sequence from this set, we can sample many sequences and access each one with metrics relevant to the realities of cloning protocols and R-loop formation. Each metric used to access candidate variable regions is described below. All metrics received equal weight in the final candidate selection, and a pool of 100 candidates was generated for each variable region. 
+While the global sequence properties for each variable region are well defined, properties such as GC-skew, content or nucleotide clustering do not determine which particular nucleotide should occur at a specific position in a given sequence. In this way, the parameters that define and separate each variable region can be thought of as bounding the set of all possible nucleotide sequences of length 200. 
+
+\begin{figure}[H]
+	\includegraphics[width=18cm]{images/plots/attribute_variation_4bp_windows.png}
+	\centering
+	\caption{}
+	\label{ranking4}
+\end{figure}
+
+
+\begin{figure}[H]
+	\includegraphics[width=18cm]{images/plots/VR-clustering.png}
+	\centering
+	\caption{}
+	\label{fig:VR:clustering}
+\end{figure}
+
+To select one specific sequence from this set, we can sample many sequences and access each one with metrics relevant to the realities of cloning protocols and R-loop formation. Each metric used to access candidate variable regions is described below. All metrics received equal weight in the final candidate selection, and a pool of 100 candidates was generated for each variable region. 
 
 \begin{figure}[H]
 	\includegraphics[width=18cm]{images/plots/VR-1.all_ranked.png}
